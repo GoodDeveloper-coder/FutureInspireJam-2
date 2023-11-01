@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1012076055067209544}
   - component: {fileID: 5611692054244533141}
   - component: {fileID: 2150344932738498833}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Circle (1)
   m_TagString: AimObject
   m_Icon: {fileID: 0}
@@ -114,3 +114,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18016b3f0df69cf4691665b32953a76a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroyTime: 2
