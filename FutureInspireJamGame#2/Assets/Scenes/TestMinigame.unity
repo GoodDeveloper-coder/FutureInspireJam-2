@@ -133,6 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 687677716}
   - component: {fileID: 687677715}
+  - component: {fileID: 687677718}
+  - component: {fileID: 687677719}
   - component: {fileID: 687677717}
   m_Layer: 0
   m_Name: Cursor
@@ -224,6 +226,39 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &687677718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687677714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8940a92803b8eb742868491b6e4ab481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &687677719
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687677714}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &744007587
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,10 +291,14 @@ MonoBehaviour:
   cursor: {fileID: 687677714}
   zone: {fileID: 1875218630}
   cloudPrefab: {fileID: 366722668372365467, guid: ca3e8185cbf699d4eaa11a42e22e672f, type: 3}
-  maxZoneSize: 0
-  minZoneSpeed: 0
-  minMinCloudGeneration: 0
-  minMaxCloudGeneration: 0
+  zoneBoundary: {x: 17.75, y: 10}
+  initialZoneSize: 10
+  zoneSizeDecrementFactor: 1.1
+  initialZoneSpeed: 1
+  zoneSpeedIncrementFactor: 1.1
+  initialMinCloudGeneration: 0
+  initialMaxCloudGeneration: 0
+  cloudGenerationDecrementFactor: 1.1
 --- !u!4 &744007589
 Transform:
   m_ObjectHideFlags: 0
@@ -285,6 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1875218632}
   - component: {fileID: 1875218631}
+  - component: {fileID: 1875218634}
   - component: {fileID: 1875218633}
   m_Layer: 0
   m_Name: Zone
@@ -376,6 +416,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &1875218634
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875218630}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1989499596
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +490,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

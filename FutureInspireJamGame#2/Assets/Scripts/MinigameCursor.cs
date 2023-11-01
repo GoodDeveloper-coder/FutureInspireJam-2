@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MinigameCursor : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class MinigameCursor : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        //rb.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        rb.MovePosition(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
     }
 
     void OnTriggerExit2D(Collider2D other)
