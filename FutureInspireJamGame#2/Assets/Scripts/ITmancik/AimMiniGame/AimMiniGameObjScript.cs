@@ -9,6 +9,9 @@ public class AimMiniGameObjScript : MonoBehaviour, IPointerDownHandler
 
     public float DestroyTime = 2f;
 
+    public bool PositiveObject;
+    public bool NegativePoints;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +28,18 @@ public class AimMiniGameObjScript : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        MiniGameScript.points += 20;
-        Debug.Log(MiniGameScript.points);
+        if (PositiveObject)
+        {
+            AimMiniGameScript.PositivePoints++;
+        }
+
+        if (NegativePoints)
+        {
+            AimMiniGameScript.NegativePoints++;
+        }
+
+        //MiniGameScript.points += 20;
+        //Debug.Log(MiniGameScript.points);
         Destroy(this.gameObject);
     }
 
