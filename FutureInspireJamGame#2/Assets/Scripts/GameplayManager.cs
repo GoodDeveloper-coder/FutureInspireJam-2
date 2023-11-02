@@ -7,6 +7,8 @@ public class GameplayManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timeText;
 
+    [SerializeField] private float focusLevelDepletionFactor;
+
     private int knowledgePoints;
 
     private int currentDay;
@@ -15,6 +17,8 @@ public class GameplayManager : MonoBehaviour
 
     private bool studiedLastPeriod;
     private bool studying;
+
+    private float focusLevel;
 
     private enum Days
     {
@@ -28,7 +32,7 @@ public class GameplayManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        timeText.text = "4:00AM";
     }
 
     // Update is called once per frame
@@ -52,6 +56,6 @@ public class GameplayManager : MonoBehaviour
     {
         currentPeriod++;
         int hour = currentPeriod / 2 + 4;
-        timeText.text = (hour < 10 ? "0" : "") + hour + ":" + (currentPeriod % 2 == 0 ? "00" : "30");
+        timeText.text = (hour < 10 ? "0" : "") + hour + ":" + (currentPeriod % 2 == 0 ? "00" : "30") + (hour < 12 ? "PM" : "AM");
     }
 }

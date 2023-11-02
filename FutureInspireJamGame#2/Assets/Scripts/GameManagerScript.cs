@@ -11,7 +11,7 @@ public class GameManagerScript : MonoBehaviour
 
     public AudioSource MainTrack;
 
-
+    public float FocusLevel;
 
     // Start is called before the first frame update
     void Start()
