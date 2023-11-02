@@ -10,12 +10,24 @@ public class AimMiniGameScript : MonoBehaviour
     public Transform[] SpawnPositions;
     public float speed = 3;
 
-    public TextMeshProUGUI ScoreText;
+    //public TextMeshProUGUI ScoreText;
+
+    public TextMeshProUGUI WinPointsText;
+    public TextMeshProUGUI LoosePointsText;
 
     //public float distance;
     //public LayerMask layerMask;
 
-    public int points;
+    //public int points;
+
+    public static int PositivePoints;
+    public static int NegativePoints;
+
+    public int PointsToWin;
+    public int PointsToLoose;
+
+    public GameObject WinMenu;
+    public GameObject LooseMenu;
 
     //public GameObject mainCam;
 
@@ -28,7 +40,19 @@ public class AimMiniGameScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ScoreText.text = $"{points}";
+        WinPointsText.text = $"to win:{PositivePoints}/{PointsToWin}";
+        LoosePointsText.text = $"to loose:{NegativePoints}/{PointsToLoose}";
+        //ScoreText.text = $"{points}";
+
+        if (PositivePoints >= PointsToWin)
+        {
+            WinMenu.SetActive(true);
+        }
+
+        if (NegativePoints >= PointsToLoose)
+        {
+            LooseMenu.SetActive(true);
+        }
 
         /*
         Vector2 df = Camera.ScreenToWorldPoint(Mouse.current.position);
