@@ -221,10 +221,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circlePrefab: {fileID: 2673763970248273538, guid: 6c2dd5ff4b6bf4244adf8f92309521b3, type: 3}
-  initialCircleCount: 5
-  initialShuffleSpeed: 10
-  shuffleSpeedIncrementFactor: 0.25
+  initialCircleCount: 12
+  circleCountIncrement: 2
+  initialShuffleTime: 1
+  shuffleTimeDecrementFactor: 0
+  initialShuffleCount: 20
+  shuffleCountIncrement: 5
   circleDistanceFromCentre: 2
+  introTime: 2.5
 --- !u!4 &768121735
 Transform:
   m_ObjectHideFlags: 0
@@ -293,7 +297,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -5,9 +5,13 @@ using TMPro;
 
 public class GameplayManager : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
+
     [SerializeField] private TextMeshProUGUI timeText;
 
     [SerializeField] private float focusLevelDepletionFactor;
+
+    [SerializeField] private Vector2 cameraBoundaries;
 
     private int knowledgePoints;
 
@@ -38,7 +42,10 @@ public class GameplayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 camPosition = Camera.main.transform.position;
+        camPosition.x = player.transform.position.x < -Mathf.Abs(cameraBoundaries.x) ? -Mathf.Abs(cameraBoundaries.x) : player.transform.position.x > Mathf.Abs(cameraBoundaries.x) ? Mathf.Abs(cameraBoundaries.x) : player.transform.position.x;
+        camPosition.y = player.transform.position.y < -Mathf.Abs(cameraBoundaries.y) ? -Mathf.Abs(cameraBoundaries.y) : player.transform.position.y > Mathf.Abs(cameraBoundaries.y) ? Mathf.Abs(cameraBoundaries.y) : player.transform.position.y;
+        Camera.main.transform.position = camPosition;
     }
 
     void FixedUpdate()

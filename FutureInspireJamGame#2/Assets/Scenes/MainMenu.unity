@@ -701,7 +701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 285}
+  m_AnchoredPosition: {x: 0, y: 230}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &852288516
@@ -724,7 +724,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Study Plan
+  m_text: 'Study Plan,
+
+    Stan!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f5acb04f34acdc444a29cc0aa58bd3bb, type: 2}
   m_sharedMaterial: {fileID: 7970823019417789067, guid: f5acb04f34acdc444a29cc0aa58bd3bb, type: 2}
@@ -763,7 +765,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -35
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
