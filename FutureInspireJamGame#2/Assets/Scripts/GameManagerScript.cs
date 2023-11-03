@@ -62,11 +62,13 @@ namespace Managers
 
         private void MiniGameManager_OnMiniGameEnded()
         {
+            Debug.Log("MiniGame Ended");
             RestartPlayerInput();
         }
 
         private void NodeParser_OnNarrationEnded()
         {
+            Debug.Log("Narration Ended");
             RestartPlayerInput();
         }
 
