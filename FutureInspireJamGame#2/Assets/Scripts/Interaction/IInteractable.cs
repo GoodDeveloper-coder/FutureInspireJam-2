@@ -9,6 +9,7 @@ namespace Interaction
     {
         public void InteractionStart();
         public void InteractionStop();
+        public void InteractionButtonPressed();
         public bool IsInteractable { get; }
     }
 }

@@ -24,13 +24,15 @@ namespace Capabilities
         private readonly int _walkingVertical = Animator.StringToHash("Vertical");
         private readonly int _walkingSpeed = Animator.StringToHash("Speed");
 
+        private bool canMove;
+
         private void Awake()
         {
             _animator = GetComponent<Animator>();
         }
         private void Start()
         {
-
+            canMove = true;
             _body = GetComponent<Rigidbody2D>();
         }
 
@@ -48,6 +50,7 @@ namespace Capabilities
 
         public void OnMovement(InputAction.CallbackContext value)
         {
+            if (!canMove) return;
             if (value.performed)
             {
                 _direction = value.ReadValue<Vector2>();
@@ -62,6 +65,14 @@ namespace Capabilities
             }
  
 
+        }
+        public void StopMovement()
+        {
+            canMove = false;
+        }
+        public void Restartmovement()
+        {
+            canMove = true;
         }
 
     }

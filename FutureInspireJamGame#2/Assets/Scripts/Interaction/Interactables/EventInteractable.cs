@@ -7,16 +7,29 @@ namespace Interaction
 {
     public class EventInteractable : MonoBehaviour, IInteractable
     {
-        [SerializeField] private List<IReactable> events;
-        [SerializeField] private bool isInteractable;
+        [SerializeField] private List<UnityEvent> events;
+        //[SerializeField] private bool isInteractable;
         public bool IsInteractable => isInteractable;
-        
+        private bool isInteractable;
+
+        private void Awake()
+        {
+            isInteractable = true;
+        }
+        public void InteractionButtonPressed()
+        {
+            if (!isInteractable) return;
+            for (int i = 0; i < events.Count; ++i)
+            {
+                Debug.Log(i);
+                events[i]?.Invoke();
+            }
+            isInteractable = false;
+        }
+
         public void InteractionStart()
         {
-            for(int i = 0; i < events.Count; ++i)
-            {
-                
-            }
+            
         }
 
         public void InteractionStop()

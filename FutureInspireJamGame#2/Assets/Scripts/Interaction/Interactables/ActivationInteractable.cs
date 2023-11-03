@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 
 namespace Interaction
 {
-    public class RegionInteractable : MonoBehaviour, IInteractable
+    public class ActivationInteractable : MonoBehaviour, IInteractable
     {
         [Separator("Interaction Parameters")]
         [SerializeField] private List<SerializableInterface<IReactable>> reactables;
@@ -28,22 +28,25 @@ namespace Interaction
 
         public void InteractionStart()
         {
-            
-            Debug.Log("Began Interaction");
-            reactables.ForEach(c => c.Value?.ReactToInteractionStart());
-            _isInteracting = true;
         }
 
         public void InteractionStop()
         {
-            Debug.Log("Ended Interaction");
-            reactables.ForEach(c => c.Value?.ReactToInteractionStop());
-            _isInteracting = false;
         }
 
         public void InteractionButtonPressed()
         {
-            throw new System.NotImplementedException();
+            if (!_isInteracting)
+            {
+                Debug.Log("Began Activation Interaction");
+                reactables.ForEach(c => c.Value?.ReactToInteractionStart());
+                _isInteracting = true;
+            } else
+            {
+                Debug.Log("Ended Activation Interaction");
+                reactables.ForEach(c => c.Value?.ReactToInteractionStop());
+                _isInteracting = false;
+            }
         }
     }
 }

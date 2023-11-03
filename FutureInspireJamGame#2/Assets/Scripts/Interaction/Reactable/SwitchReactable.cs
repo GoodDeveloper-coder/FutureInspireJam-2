@@ -8,28 +8,34 @@ namespace Interaction
     {
         [SerializeField] private bool activatedAtStart;
         [SerializeField] private bool multipleActivationAllowed;
-
+        [SerializeField] private SpriteRenderer visual;
         private bool _alreadyActivatedOnce;
         private bool _currentlyActivated;
         private void Awake()
         {
             _alreadyActivatedOnce = false;
-            _currentlyActivated = activatedAtStart;
-            gameObject.SetActive(_currentlyActivated);
+            if (activatedAtStart)
+            {
+                visual.enabled = true;
+                _currentlyActivated = true;
+            } else
+            {
+                visual.enabled = false;
+                _currentlyActivated = false;
+
+            }
         }
         public void ReactToInteractionStart()
         {
-            if (_alreadyActivatedOnce && !multipleActivationAllowed) return;
+            if (!multipleActivationAllowed && _alreadyActivatedOnce) return;
+            visual.enabled = !visual.enabled;
             _alreadyActivatedOnce = true;
-            _currentlyActivated = true;
-            gameObject.SetActive(_currentlyActivated);
         }
 
         public void ReactToInteractionStop()
         {
-            if (_alreadyActivatedOnce && !multipleActivationAllowed) return;
-            _currentlyActivated = false;
-            gameObject.SetActive(_currentlyActivated);
+            if (!multipleActivationAllowed && _alreadyActivatedOnce) return;
+            visual.enabled = !visual.enabled;
         }
     }
 
