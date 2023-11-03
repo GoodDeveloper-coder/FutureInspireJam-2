@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class Minigame : MonoBehaviour
 {
     protected bool playing;
+    protected bool intro;
+    [SerializeField] protected float introTime;
     protected bool win;
     protected bool lose;
 

@@ -6,24 +6,23 @@ public class ShuffleMinigame : Minigame
 {
     [SerializeField] private GameObject circlePrefab;
 
-    [SerializeField] private int initialCircleCount;
-    [SerializeField] private int circleCountIncrement;
-    [SerializeField] private float initialShuffleTime;
-    [SerializeField] private float shuffleTimeDecrementFactor;
-    [SerializeField] private int initialShuffleCount;
-    [SerializeField] private int shuffleCountIncrement;
+    [SerializeField] private int minCircleCount;
+    [SerializeField] private int maxCircleCount;
+    [SerializeField] private float minShuffleTime;
+    [SerializeField] private float maxShuffleTime;
+    [SerializeField] private int minShuffleCount;
+    [SerializeField] private int maxShuffleCount;
 
     [SerializeField] private float circleDistanceFromCentre;
-
-    [SerializeField] private float introTime;
-
-    private bool intro;
+    
+    private int circleCount;
+    private float shuffleTime;
+    private int shuffleCount;
 
     private int whiteCircle;
 
     private GameObject[] circles;
-
-    private int[] shuffleIndices;
+    
     private Vector3[] shufflePositionsFrom;
     private Vector3[] shufflePositionsTo;
 
@@ -33,27 +32,7 @@ public class ShuffleMinigame : Minigame
     // Start is called before the first frame update
     void Start()
     {
-        intro = true;
-        whiteCircle = Random.Range(0, initialCircleCount);
-        circles = new GameObject[initialCircleCount];
-        shuffleIndices = new int[initialCircleCount];
-        shufflePositionsFrom = new Vector3[initialCircleCount];
-        shufflePositionsTo = new Vector3[initialCircleCount];
-        bool[] index = new bool[initialCircleCount];
-        for (int i = 0; i < initialCircleCount; i++)
-        {
-            circles[i] = Instantiate(circlePrefab, transform.position + new Vector3(Mathf.Sin(i * Mathf.PI * 2f / initialCircleCount), Mathf.Cos(i * Mathf.PI * 2f / initialCircleCount), 0) * circleDistanceFromCentre, transform.rotation);
-            circles[i].transform.localScale = (Vector3.right + Vector3.up) * circleDistanceFromCentre * Mathf.Sqrt(3f / initialCircleCount) + Vector3.forward;
-            circles[i].GetComponent<SpriteRenderer>().color = i == whiteCircle ? Color.white : Color.black;
-            do shuffleIndices[i] = Random.Range(0, initialCircleCount);
-            while (index[shuffleIndices[i]]);
-            index[shuffleIndices[i]] = true;
-        }
-        for (int i = 0; i < initialCircleCount; i++)
-        {
-            shufflePositionsFrom[i] = circles[shuffleIndices[i]].transform.position;
-            shufflePositionsTo[i] = circles[shuffleIndices[(i + 1) % initialCircleCount]].transform.position;
-        }
+        
     }
 
     // Update is called once per frame
@@ -64,50 +43,89 @@ public class ShuffleMinigame : Minigame
 
     void FixedUpdate()
     {
+        if (!playing) return;
         if (intro)
         {
             currentShuffleTime += Time.deltaTime;
             if (currentShuffleTime < introTime)
             {
-                circles[whiteCircle].transform.position = Vector3.Lerp(transform.position, shufflePositionsFrom[shuffleIndices[whiteCircle]], currentShuffleTime / introTime);
-                circles[whiteCircle].GetComponent<SpriteRenderer>().color = Color.white + (Color.black - Color.white) * currentShuffleTime / introTime;
+                circles[whiteCircle].transform.position = Vector3.Lerp(transform.position, shufflePositionsFrom[whiteCircle], currentShuffleTime / introTime);
+                circles[whiteCircle].GetComponent<SpriteRenderer>().color = Color.green + (Color.white - Color.green) * currentShuffleTime / introTime;
             }
             else
             {
-                circles[whiteCircle].transform.position = shufflePositionsFrom[shuffleIndices[0]];
-                circles[whiteCircle].GetComponent<SpriteRenderer>().color = Color.white + (Color.black - Color.white) * currentShuffleTime / introTime;
+                circles[whiteCircle].transform.position = shufflePositionsFrom[whiteCircle];
+                circles[whiteCircle].GetComponent<SpriteRenderer>().color = Color.white;
                 intro = false;
+                currentShuffleTime = 0;
             }
             return;
         }
-        if (currentShuffleIndex >= initialShuffleCount) return;
-        currentShuffleTime += Time.deltaTime;
-        if (currentShuffleTime < initialShuffleTime)
+        if (currentShuffleIndex >= shuffleCount)
         {
-            for (int i = 0; i < initialCircleCount; i++) circles[i].transform.position = Vector3.Lerp(shufflePositionsFrom[i], shufflePositionsTo[i], currentShuffleTime / initialShuffleTime);
+            // check if circle has been clicked on
+            return;
+        }
+        currentShuffleTime += Time.deltaTime;
+        if (currentShuffleTime < shuffleTime)
+        {
+            for (int i = 0; i < circleCount; i++) circles[i].transform.position = Vector3.Lerp(shufflePositionsFrom[i], shufflePositionsTo[i], currentShuffleTime / shuffleTime);
         }
         else
         {
+            for (int i = 0; i < circleCount; i++) circles[i].transform.position = shufflePositionsTo[i];
             currentShuffleIndex++;
             currentShuffleTime = 0;
-            bool[] index = new bool[initialCircleCount];
-            for (int i = 0; i < initialCircleCount; i++)
-            {
-                circles[i].transform.position = shufflePositionsTo[i];
-                do shuffleIndices[i] = Random.Range(0, initialCircleCount);
-                while (index[shuffleIndices[i]]);
-                index[shuffleIndices[i]] = true;
-            }
-            for (int i = 0; i < initialCircleCount; i++)
-            {
-                shufflePositionsFrom[i] = circles[shuffleIndices[i]].transform.position;
-                shufflePositionsTo[i] = circles[shuffleIndices[(i + 1) % initialCircleCount]].transform.position;
-            }
+            Shuffle();
         }
     }
 
     public override void PlayMinigame(float focusLevel)
     {
         playing = true;
+        circleCount = (int)(maxCircleCount - (maxCircleCount - minCircleCount) * focusLevel);
+        shuffleTime = minShuffleTime + (maxShuffleTime - minShuffleTime) * focusLevel;
+        shuffleCount = (int)(maxShuffleCount - (maxShuffleCount - minShuffleCount) * focusLevel);
+        currentShuffleIndex = 0;
+
+        intro = true;
+        whiteCircle = Random.Range(0, circleCount);
+        if (circles != null)
+        {
+            foreach (GameObject c in circles) Destroy(c);
+        }
+        circles = new GameObject[circleCount];
+        shufflePositionsFrom = new Vector3[circleCount];
+        shufflePositionsTo = new Vector3[circleCount];
+        for (int i = 0; i < circleCount; i++)
+        {
+            circles[i] = Instantiate(circlePrefab, transform.position + new Vector3(Mathf.Sin(i * Mathf.PI * 2f / circleCount), Mathf.Cos(i * Mathf.PI * 2f / circleCount), 0) * circleDistanceFromCentre, transform.rotation);
+            circles[i].transform.localScale = (Vector3.right + Vector3.up) * circleDistanceFromCentre * Mathf.Sqrt(3f / circleCount) + Vector3.forward;
+            circles[i].GetComponent<SpriteRenderer>().color = i == whiteCircle ? Color.green : Color.white;
+        }
+        Shuffle();
+    }
+
+    private void Shuffle()
+    {
+        bool stuck = false;
+        do
+        {
+            stuck = false;
+            int iterations = 0;
+            bool[] index = new bool[circleCount];
+            for (int i = 0; i < circleCount; i++)
+            {
+                iterations = 0;
+                shufflePositionsFrom[i] = circles[i].transform.position;
+                int r;
+                do r = Random.Range(0, circleCount);
+                while (iterations < 100 && (i == r || index[r]));
+                shufflePositionsTo[i] = circles[r].transform.position;
+                index[r] = true;
+                if (iterations >= 100) stuck = true;
+            }
+        }
+        while (stuck);
     }
 }

@@ -9,7 +9,8 @@ public class GeneralMinigameScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //minigame = GetComponent<Minigame>();
+        minigame = GetComponent<Minigame>();
+        minigame.PlayMinigame(1f);
     }
 
     // Update is called once per frame
