@@ -69,6 +69,8 @@ namespace Capabilities
         public void StopMovement()
         {
             canMove = false;
+            _desiredVelocity = Vector2.zero;
+            _body.velocity = Vector2.zero;
         }
         public void Restartmovement()
         {

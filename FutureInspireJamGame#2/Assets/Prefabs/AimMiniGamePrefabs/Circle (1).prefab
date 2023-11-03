@@ -115,3 +115,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyTime: 2
+  PositiveObject: 1
+  NegativePoints: 0
