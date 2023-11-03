@@ -24,6 +24,10 @@ public class GameplayManager : MonoBehaviour
 
     private float focusLevel;
 
+    public int Minute;
+    public int Hour;
+    public int CurrentDay;
+
     private enum Days
     {
         Monday,
@@ -42,6 +46,10 @@ public class GameplayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Minute = TimeManagerScript.Minute;
+        Hour = TimeManagerScript.Hour;
+        CurrentDay = TimeManagerScript.Day;
+
         Vector3 camPosition = Camera.main.transform.position;
         camPosition.x = player.transform.position.x < -Mathf.Abs(cameraBoundaries.x) ? -Mathf.Abs(cameraBoundaries.x) : player.transform.position.x > Mathf.Abs(cameraBoundaries.x) ? Mathf.Abs(cameraBoundaries.x) : player.transform.position.x;
         camPosition.y = player.transform.position.y < -Mathf.Abs(cameraBoundaries.y) ? -Mathf.Abs(cameraBoundaries.y) : player.transform.position.y > Mathf.Abs(cameraBoundaries.y) ? Mathf.Abs(cameraBoundaries.y) : player.transform.position.y;
