@@ -10,7 +10,6 @@ public class GeneralMinigameScript : MonoBehaviour
     void Start()
     {
         minigame = GetComponent<Minigame>();
-        minigame.PlayMinigame(1f);
     }
 
     // Update is called once per frame

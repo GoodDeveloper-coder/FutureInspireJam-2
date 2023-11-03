@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 520398041}
   - component: {fileID: 520398043}
   m_Layer: 0
-  m_Name: Minigame Manager
+  m_Name: Cursor Minigame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,16 +183,16 @@ MonoBehaviour:
   introTime: 1
   cursor: {fileID: 687677714}
   circlePrefab: {fileID: 1909502115466030941, guid: 5d86fb8765add604c83d71cc4fa95ed2, type: 3}
-  boundaries: {x: 9, y: 5}
+  boundaries: {x: 7.5, y: 4}
   rows: 18
   columns: 10
-  circleSize: 1
-  minCirclesInRow: 1
-  maxCirclesInRow: 9
-  minCirclesInColumn: 1
-  maxCirclesInColumn: 5
-  minAttackTime: 3
-  maxAttackTime: 1
+  circleSize: 0.5
+  minCirclesInRow: 5
+  maxCirclesInRow: 10
+  minCirclesInColumn: 3
+  maxCirclesInColumn: 6
+  minAttackTime: 1
+  maxAttackTime: 2
   minAttackCount: 10
   maxAttackCount: 20
 --- !u!1 &687677714
@@ -354,7 +354,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

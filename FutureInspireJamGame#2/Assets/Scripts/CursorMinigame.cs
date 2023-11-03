@@ -45,7 +45,7 @@ public class CursorMinigame : Minigame
     void Start()
     {
         cursorRB = cursor.GetComponent<Rigidbody2D>();
-        
+        cursor.SetActive(false);
     }
 
     // Update is called once per frame
@@ -57,39 +57,52 @@ public class CursorMinigame : Minigame
     void FixedUpdate()
     {
         if (!playing || win || lose) return;
+        Vector2 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        cursorRB.MovePosition(new Vector2(cursorPosition.x < -Mathf.Abs(boundaries.x) ? -Mathf.Abs(boundaries.x) : cursorPosition.x > Mathf.Abs(boundaries.x) ? Mathf.Abs(boundaries.x) : cursorPosition.x, cursorPosition.y < -Mathf.Abs(boundaries.y) ? -Mathf.Abs(boundaries.y) : cursorPosition.y > Mathf.Abs(boundaries.y) ? Mathf.Abs(boundaries.y) : cursorPosition.y));
         if (intro)
         {
             currentAttackTime += Time.deltaTime;
-            if (currentAttackTime < introTime)
+            if (currentAttackTime >= introTime)
             {
                 intro = false;
                 Attack();
             }
             return;
         }
-        cursorRB.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         currentAttackTime += Time.deltaTime;
         if (currentAttackTime < attackTime)
         {
             for (int i = 0; i < currentCircles.Length; i++)
             {
                 currentCircles[i].MovePosition(Vector2.Lerp(circlesMoveFrom[i], circlesMoveTo[i], currentAttackTime / attackTime));
-                if (Vector2.Distance(cursorRB.position, currentCircles[i].position) < 1.5f) lose = true;
+                if (!lose && Vector2.Distance(cursorRB.position, currentCircles[i].position) < (circleSize + 0.5f) / 2)
+                {
+                    cursor.SetActive(false);
+                    lose = true;
+                }
             }
         }
         else
         {
             if (attackIndex < attackCount) Attack();
-            else win = true;
+            else
+            {
+                cursor.SetActive(false);
+                foreach (Rigidbody2D c in currentCircles) Destroy(c.gameObject);
+                currentCircles = null;
+                win = true;
+            }
         }
     }
     
     public override void PlayMinigame(float focusLevel)
     {
         playing = true;
+        win = false;
+        lose = false;
         circlesInRow = (int)(maxCirclesInRow - (maxCirclesInRow - minCirclesInRow) * focusLevel);
         circlesInColumn = (int)(maxCirclesInColumn - (maxCirclesInColumn - minCirclesInColumn) * focusLevel);
-        attackTime = maxAttackTime - (maxAttackTime - minAttackTime) * focusLevel;
+        attackTime = minAttackTime + (maxAttackTime - minAttackTime) * focusLevel;
         attackCount = (int)(maxAttackCount - (maxAttackCount - minAttackCount) * focusLevel);
         intro = true;
         rowAttack = Random.Range(0, 2) == 0;
@@ -99,10 +112,14 @@ public class CursorMinigame : Minigame
     private void Attack()
     {
         attackIndex++;
-        attackTime = 0;
+        currentAttackTime = 0;
         rowAttack = !rowAttack;
         int lines = rowAttack ? rows : columns;
         int circleCount = rowAttack ? circlesInColumn : circlesInRow;
+        if (currentCircles != null)
+        {
+            foreach (Rigidbody2D c in currentCircles) Destroy(c.gameObject);
+        }
         currentCircles = new Rigidbody2D[circleCount];
         circlesMoveFrom = new Vector2[circleCount];
         circlesMoveTo = new Vector2[circleCount];
@@ -114,16 +131,17 @@ public class CursorMinigame : Minigame
             while (index[line]);
             index[line] = true;
             currentCircles[i] = Instantiate(circlePrefab, transform.position, transform.rotation).GetComponent<Rigidbody2D>();
+            currentCircles[i].transform.localScale = (Vector3.right + Vector3.up) * circleSize + Vector3.forward;
             bool startNegative = Random.Range(0, 1) == 0;
             if (rowAttack)
             {
-                circlesMoveFrom[i] = new Vector2(startNegative? -boundaries.x - 0.5f : boundaries.x + 0.5f, boundaries.y * (line + 0.5f - rows / 2f) / rows);
-                circlesMoveTo[i] = new Vector2(startNegative ? boundaries.x : -boundaries.x - 0.5f, boundaries.y * (line + 0.5f - rows / 2f) / rows);
+                circlesMoveFrom[i] = new Vector2(startNegative? -boundaries.x - 0.5f : boundaries.x + 0.5f, boundaries.y * (line + 0.5f - rows / 2f) * 2f / rows);
+                circlesMoveTo[i] = new Vector2(startNegative ? boundaries.x + 0.5f : -boundaries.x - 0.5f, boundaries.y * (line + 0.5f - rows / 2f) * 2f / rows);
             }
             else
             {
-                circlesMoveFrom[i] = new Vector2(boundaries.x * (line + 0.5f - columns / 2f) / columns, startNegative ? -boundaries.y - 0.5f : boundaries.y);
-                circlesMoveTo[i] = new Vector2(boundaries.x * (line + 0.5f - columns / 2f) / columns, startNegative ? boundaries.y : -boundaries.y - 0.5f);
+                circlesMoveFrom[i] = new Vector2(boundaries.x * (line + 0.5f - columns / 2f) * 2f / columns, startNegative ? -boundaries.y - 0.5f : boundaries.y + 0.5f);
+                circlesMoveTo[i] = new Vector2(boundaries.x * (line + 0.5f - columns / 2f) * 2f / columns, startNegative ? boundaries.y + 0.5f : -boundaries.y - 0.5f);
             }
             currentCircles[i].MovePosition(circlesMoveFrom[i]);
         }

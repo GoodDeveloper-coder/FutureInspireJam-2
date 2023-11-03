@@ -14,12 +14,14 @@ public class ShuffleMinigame : Minigame
     [SerializeField] private int maxShuffleCount;
 
     [SerializeField] private float circleDistanceFromCentre;
-    
+
+    [SerializeField] private float circleSize;
+
     private int circleCount;
     private float shuffleTime;
     private int shuffleCount;
 
-    private int whiteCircle;
+    private int greenCircle;
 
     private GameObject[] circles;
     
@@ -43,19 +45,14 @@ public class ShuffleMinigame : Minigame
 
     void FixedUpdate()
     {
-        if (!playing) return;
+        if (!playing || win || lose) return;
         if (intro)
         {
             currentShuffleTime += Time.deltaTime;
-            if (currentShuffleTime < introTime)
-            {
-                circles[whiteCircle].transform.position = Vector3.Lerp(transform.position, shufflePositionsFrom[whiteCircle], currentShuffleTime / introTime);
-                circles[whiteCircle].GetComponent<SpriteRenderer>().color = Color.green + (Color.white - Color.green) * currentShuffleTime / introTime;
-            }
+            if (currentShuffleTime < introTime) circles[greenCircle].GetComponent<SpriteRenderer>().color = Color.green + (Color.white - Color.green) * currentShuffleTime / introTime;
             else
             {
-                circles[whiteCircle].transform.position = shufflePositionsFrom[whiteCircle];
-                circles[whiteCircle].GetComponent<SpriteRenderer>().color = Color.white;
+                circles[greenCircle].GetComponent<SpriteRenderer>().color = Color.white;
                 intro = false;
                 currentShuffleTime = 0;
             }
@@ -63,7 +60,24 @@ public class ShuffleMinigame : Minigame
         }
         if (currentShuffleIndex >= shuffleCount)
         {
-            // check if circle has been clicked on
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                for (int i = 0; i < circles.Length; i++)
+                {
+                    if (Vector2.Distance(mousePosition, new Vector2(circles[i].transform.position.x, circles[i].transform.position.y)) < circleSize / 2)
+                    {
+                        if (i == greenCircle) win = true;
+                        else lose = true;
+                        i = circles.Length;
+                    }
+                }
+                if (win || lose)
+                {
+                    Debug.Log(win ? "WIN" : "LOSE");
+                    foreach (GameObject c in circles) Destroy(c);
+                }
+            }
             return;
         }
         currentShuffleTime += Time.deltaTime;
@@ -83,13 +97,15 @@ public class ShuffleMinigame : Minigame
     public override void PlayMinigame(float focusLevel)
     {
         playing = true;
+        win = false;
+        lose = false;
         circleCount = (int)(maxCircleCount - (maxCircleCount - minCircleCount) * focusLevel);
         shuffleTime = minShuffleTime + (maxShuffleTime - minShuffleTime) * focusLevel;
         shuffleCount = (int)(maxShuffleCount - (maxShuffleCount - minShuffleCount) * focusLevel);
         currentShuffleIndex = 0;
 
         intro = true;
-        whiteCircle = Random.Range(0, circleCount);
+        greenCircle = Random.Range(0, circleCount);
         if (circles != null)
         {
             foreach (GameObject c in circles) Destroy(c);
@@ -99,9 +115,9 @@ public class ShuffleMinigame : Minigame
         shufflePositionsTo = new Vector3[circleCount];
         for (int i = 0; i < circleCount; i++)
         {
-            circles[i] = Instantiate(circlePrefab, transform.position + new Vector3(Mathf.Sin(i * Mathf.PI * 2f / circleCount), Mathf.Cos(i * Mathf.PI * 2f / circleCount), 0) * circleDistanceFromCentre, transform.rotation);
-            circles[i].transform.localScale = (Vector3.right + Vector3.up) * circleDistanceFromCentre * Mathf.Sqrt(3f / circleCount) + Vector3.forward;
-            circles[i].GetComponent<SpriteRenderer>().color = i == whiteCircle ? Color.green : Color.white;
+            circles[i] = Instantiate(circlePrefab, transform.position + (Vector3.right * Mathf.Sin(i * Mathf.PI * 2f / circleCount) + Vector3.up * Mathf.Cos(i * Mathf.PI * 2f / circleCount)) * circleDistanceFromCentre, transform.rotation);
+            circles[i].transform.localScale = (Vector3.right + Vector3.up) * circleSize + Vector3.forward;
+            circles[i].GetComponent<SpriteRenderer>().color = i == greenCircle ? Color.green : Color.white;
         }
         Shuffle();
     }
@@ -112,18 +128,25 @@ public class ShuffleMinigame : Minigame
         do
         {
             stuck = false;
-            int iterations = 0;
+            int iterations;
             bool[] index = new bool[circleCount];
             for (int i = 0; i < circleCount; i++)
             {
-                iterations = 0;
-                shufflePositionsFrom[i] = circles[i].transform.position;
-                int r;
-                do r = Random.Range(0, circleCount);
-                while (iterations < 100 && (i == r || index[r]));
-                shufflePositionsTo[i] = circles[r].transform.position;
-                index[r] = true;
-                if (iterations >= 100) stuck = true;
+                if (!stuck)
+                {
+                    iterations = 0;
+                    shufflePositionsFrom[i] = circles[i].transform.position;
+                    int r;
+                    do
+                    {
+                        r = Random.Range(0, circleCount);
+                        iterations++;
+                    }
+                    while (iterations < 100 && (i == r || index[r]));
+                    shufflePositionsTo[i] = circles[r].transform.position;
+                    index[r] = true;
+                    if (iterations >= 100) stuck = true;
+                }
             }
         }
         while (stuck);
