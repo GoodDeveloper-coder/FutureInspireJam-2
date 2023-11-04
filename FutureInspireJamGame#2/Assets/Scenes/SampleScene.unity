@@ -4280,6 +4280,7 @@ MonoBehaviour:
   rainAmbience: {fileID: 8300000, guid: c72dd1dac242ba045a6826ccab2005fa, type: 3}
   thunderAmbience: {fileID: 8300000, guid: 05bd06a8d0a50e5428d643309ced3dd7, type: 3}
   plumberAmbience: {fileID: 8300000, guid: f3816f1549fdcd84b902a18f02f576ad, type: 3}
+  doorKnockSFX: {fileID: 8300000, guid: d16570f0a078859458ded05339431149, type: 3}
   transitionDuration: 2.5
 --- !u!1 &1181947434
 GameObject:

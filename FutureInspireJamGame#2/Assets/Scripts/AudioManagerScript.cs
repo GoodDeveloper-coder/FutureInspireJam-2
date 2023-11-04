@@ -19,6 +19,8 @@ public class AudioManagerScript : MonoBehaviour
     [SerializeField] private AudioClip thunderAmbience;
     [SerializeField] private AudioClip plumberAmbience;
 
+    [SerializeField] private AudioClip doorKnockSFX;
+
     [SerializeField] private float transitionDuration;
 
     private int dayIndex;
@@ -58,12 +60,18 @@ public class AudioManagerScript : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.N)) SetToNight();
-        if (Input.GetKeyDown(KeyCode.D)) SetToDay();
-        if (Input.GetKeyDown(KeyCode.S)) StartMinigame();
-        if (Input.GetKeyDown(KeyCode.E)) EndMinigame();
-        if (Input.GetKeyDown(KeyCode.P)) ActivatePlumberAmbience();
-        if (Input.GetKeyDown(KeyCode.O)) DeactivatePlumberAmbience();
+        //if (Input.GetKeyDown(KeyCode.N)) SetToNight();
+        //if (Input.GetKeyDown(KeyCode.D)) SetToDay();
+        //if (Input.GetKeyDown(KeyCode.S)) StartMinigame();
+        //if (Input.GetKeyDown(KeyCode.E)) EndMinigame();
+        //if (Input.GetKeyDown(KeyCode.P)) ActivatePlumberAmbience();
+        //if (Input.GetKeyDown(KeyCode.O)) DeactivatePlumberAmbience();
+        //if (Input.GetKeyDown(KeyCode.K)) PlayDoorKnock();
+    }
+
+    public void PlayDoorKnock()
+    {
+        sFXPlayer.PlayOneShot(doorKnockSFX);
     }
 
     public void ActivatePlumberAmbience()
