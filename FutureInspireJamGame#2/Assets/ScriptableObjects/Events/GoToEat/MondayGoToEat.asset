@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 977e3aa9e4511134dba907d7bdd09b0f, type: 3}
-  m_Name: MondayDinner
+  m_Name: MondayGoToEat
   m_EditorClassIdentifier: 
   day: 0
-  hour: 19
-  dialogueGraph: {fileID: 11400000, guid: 431c011f2b3fd9445adfefec4942fde2, type: 2}
+  hour: 18
+  dialogueGraph: {fileID: 11400000, guid: 6345388c33b25fc46a1de5f479931197, type: 2}
