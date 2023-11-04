@@ -14,7 +14,7 @@ public class CursorMinigame : Minigame
     [SerializeField] private int columns;
 
     [SerializeField] private float circleSize;
-    //
+    
     [SerializeField] private int minCirclesInRow;
     [SerializeField] private int maxCirclesInRow;
     [SerializeField] private int minCirclesInColumn;

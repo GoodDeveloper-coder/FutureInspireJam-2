@@ -12,7 +12,7 @@ public class ShuffleMinigame : Minigame
     [SerializeField] private float maxShuffleTime;
     [SerializeField] private int minShuffleCount;
     [SerializeField] private int maxShuffleCount;
-    //
+
     [SerializeField] private float circleDistanceFromCentre;
 
     [SerializeField] private float circleSize;
