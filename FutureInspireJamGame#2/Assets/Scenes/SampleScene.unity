@@ -1472,16 +1472,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de2bc25daae6834e93b8d8525ca6816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introTime: 2.5
   circlePrefab: {fileID: 2673763970248273538, guid: 6c2dd5ff4b6bf4244adf8f92309521b3, type: 3}
-  minCircleCount: 6
-  maxCircleCount: 6
-  minShuffleTime: 0.125
-  maxShuffleTime: 1
-  minShuffleCount: 15
-  maxShuffleCount: 120
+  initialCircleCount: 0
+  initialShuffleSpeed: 0
+  shuffleSpeedIncrementFactor: 0
   circleDistanceFromCentre: 2
-  circleSize: 2
 --- !u!114 &366514403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4015,7 +4010,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1082387362
@@ -5141,7 +5136,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1414098475
@@ -6393,8 +6388,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 04:00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 78eb54cd9a577964c8e73540b8175fad, type: 2}
-  m_sharedMaterial: {fileID: 8374415357959879926, guid: 78eb54cd9a577964c8e73540b8175fad, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 32f4496aaf3a0564d9fcccde532c9bd3, type: 2}
+  m_sharedMaterial: {fileID: -6200610659821222513, guid: 32f4496aaf3a0564d9fcccde532c9bd3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6513,21 +6508,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d968cc30b9cd834e96256bb43c87d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introTime: 1
   cursor: {fileID: 235681915}
-  circlePrefab: {fileID: 1909502115466030941, guid: 5d86fb8765add604c83d71cc4fa95ed2, type: 3}
-  boundaries: {x: 7.5, y: 4}
-  rows: 18
-  columns: 10
-  circleSize: 0.5
-  minCirclesInRow: 5
-  maxCirclesInRow: 10
-  minCirclesInColumn: 3
-  maxCirclesInColumn: 6
-  minAttackTime: 1
-  maxAttackTime: 2
-  minAttackCount: 10
-  maxAttackCount: 20
+  zone: {fileID: 0}
+  cloudPrefab: {fileID: 0}
+  zoneBoundary: {x: 0, y: 0}
+  initialZoneSize: 0
+  zoneSizeDecrementFactor: 0
+  initialZoneSpeed: 0
+  zoneSpeedIncrementFactor: 0
+  initialMinCloudGeneration: 0
+  initialMaxCloudGeneration: 0
+  cloudGenerationDecrementFactor: 0
 --- !u!114 &1725177027
 MonoBehaviour:
   m_ObjectHideFlags: 0
