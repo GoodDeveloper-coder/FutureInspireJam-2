@@ -49,23 +49,11 @@ public class AudioManagerScript : MonoBehaviour
                 musicPlayer1.Stop();
                 musicPlayer1.clip = night ? nightMusic[dayIndex] : dayIndex < dayMusic.Length ? dayMusic[dayIndex] : endMusic;
                 musicPlayer1.Play();
-                if (night)
+                if (night || dayIndex == 1 || dayIndex == 2)
                 {
                     ambiencePlayer1.volume = 1;
                     ambiencePlayer1.Stop();
-                    ambiencePlayer1.clip = nightAmbience;
-                    ambiencePlayer1.Play();
-                }
-                else if (dayIndex == 1)
-                {
-                    ambiencePlayer1.Stop();
-                    ambiencePlayer1.clip = rainAmbience;
-                    ambiencePlayer1.Play();
-                }
-                else if (dayIndex == 2)
-                {
-                    ambiencePlayer1.Stop();
-                    ambiencePlayer1.clip = thunderAmbience;
+                    ambiencePlayer1.clip = night ? nightAmbience : dayIndex == 1 ? rainAmbience : thunderAmbience;
                     ambiencePlayer1.Play();
                 }
             }
