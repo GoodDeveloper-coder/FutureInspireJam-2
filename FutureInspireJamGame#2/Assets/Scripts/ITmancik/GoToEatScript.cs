@@ -8,17 +8,22 @@ using UnityEngine.InputSystem;
 public class GoToEatScript : MonoBehaviour
 {
     public GameEventSO[] EatTime;
+
     public int ArrayIndex = 0;
+    public int RandomNumber;
     //public int TestArrayIndex = 0;
+
     public GameObject FateIn;
     public GameObject FateOut;
+
     bool CanAddTime = true;
     bool CanMakeFateIn = true;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        RandomTimeToGoToEat();
     }
 
     // Update is called once per frame
@@ -43,6 +48,7 @@ public class GoToEatScript : MonoBehaviour
             if (ArrayIndex < 5)
             {
                 ArrayIndex++;
+                RandomTimeToGoToEat();
             }
             else
             {
@@ -65,5 +71,21 @@ public class GoToEatScript : MonoBehaviour
         FateOut.SetActive(false);
         CanAddTime = true;
         CanMakeFateIn = true;
+    }
+
+    void RandomTimeToGoToEat()
+    {
+        RandomNumber = Random.Range(1, 3);
+
+        if (RandomNumber == 1)
+        {
+            EatTime[ArrayIndex].hour = 17;
+        }
+
+        if (RandomNumber == 2)
+        {
+            EatTime[ArrayIndex].hour = 18;
+        }
+
     }
 }
