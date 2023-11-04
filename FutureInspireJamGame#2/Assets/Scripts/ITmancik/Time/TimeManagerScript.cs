@@ -10,6 +10,7 @@ public class TimeManagerScript : MonoBehaviour
 
     public static int Minute { get; set; }
     public static int Hour { get; set; }
+    public static int Day { get; set; }
     public static bool timePaused { get; set; }
 
     public float MinuteToRealTime = 0.5f;
@@ -20,6 +21,7 @@ public class TimeManagerScript : MonoBehaviour
     {
         Minute = 0;
         Hour = 16;
+        Day = 1;
         timer = MinuteToRealTime;
     }
 
@@ -44,6 +46,7 @@ public class TimeManagerScript : MonoBehaviour
                 if (Hour >= 24)
                 {
                     Hour = 0;
+                    Day++;
                 }
             }
 
