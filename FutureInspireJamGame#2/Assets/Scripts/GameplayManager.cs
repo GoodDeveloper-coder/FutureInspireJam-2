@@ -12,7 +12,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private float focusLevelDepletionFactor;
 
     [SerializeField] private Vector2 cameraBoundaries;
-
+    
     private int knowledgePoints;
 
     private int currentDay;
@@ -36,7 +36,7 @@ public class GameplayManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeText.text = "4:00AM";
+        //timeText.text = "4:00AM";
     }
 
     // Update is called once per frame
