@@ -8,8 +8,8 @@ public class TimeManagerScript : MonoBehaviour
     public static Action OnMinuteChanged;
     public static Action OnHourChanged;
 
-    public static int Minute { get; private set; }
-    public static int Hour { get; private set; }
+    public static int Minute { get; set; }
+    public static int Hour { get; set; }
     public static bool timePaused { get; set; }
 
     public float MinuteToRealTime = 0.5f;
