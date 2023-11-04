@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UICalendar : MonoBehaviour
 {
@@ -15,7 +16,10 @@ public class UICalendar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            Calendar.transform.localScale = new Vector3(0, 0, 1);
+        }
     }
 
     public void OpenCalendar()
