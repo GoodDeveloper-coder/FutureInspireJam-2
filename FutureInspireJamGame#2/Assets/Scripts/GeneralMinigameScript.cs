@@ -2,20 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GeneralMinigameScript : MonoBehaviour
+namespace MiniGames
 {
-    private Minigame minigame;
-
-    // Start is called before the first frame update
-    void Start()
+    public class GeneralMinigameScript : MonoBehaviour, IMiniGame
     {
-        minigame = GetComponent<Minigame>();
-        //minigame.PlayMinigame(0.5f);
-    }
+        private Minigame minigame;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Start is called before the first frame update
+        void Start()
+        {
+            minigame = GetComponent<Minigame>();
+            //minigame.PlayMinigame(0.5f);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        public void MiniGameStart()
+        {
+            minigame.PlayMinigame(0.5f);
+        }
+
+        public bool MiniGameEnded()
+        {
+            return minigame.GetWin() || minigame.GetLose();
+        }
     }
 }
