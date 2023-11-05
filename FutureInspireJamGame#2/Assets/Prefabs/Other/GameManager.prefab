@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &155582223467575470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 155582223467575504}
+  - component: {fileID: 155582223467575471}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &155582223467575504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155582223467575470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.8387547, y: -1.1708473, z: 0.0012768805}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155582223467575471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155582223467575470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9cc34ecc74b5c74fa823a06adc25d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerObject: {fileID: 0}
+  eventList:
+  - {fileID: 11400000, guid: 34255939315870846b6fd6baa85418c4, type: 2}
+  - {fileID: 11400000, guid: a376255dcf9a5c741b94158709d55a05, type: 2}
+  - {fileID: 11400000, guid: b90375180b64c1d479818184dff72db2, type: 2}
+  - {fileID: 11400000, guid: f6432d5626ee9ac4395b1dee65135174, type: 2}
+  - {fileID: 11400000, guid: 8013ae3b9b122424a9ece1fe4072ce4a, type: 2}
+  - {fileID: 11400000, guid: 4c78c947e8c80cf458cf98e479f09403, type: 2}
+  - {fileID: 11400000, guid: be95ad88a11caf847ba924380f8a3322, type: 2}
+  - {fileID: 11400000, guid: 89485594a07efad4e93b1e1dd7ba6069, type: 2}
+  - {fileID: 11400000, guid: a7965145aeeeb42408bed6e0b5f7ba6f, type: 2}
+  - {fileID: 11400000, guid: 97ee9380db722fb4b9a417d4aa11cf1f, type: 2}
+  - {fileID: 11400000, guid: 0f85f180d7e4b3c4ea206cef5e265978, type: 2}
+  - {fileID: 11400000, guid: 86eb59bdb52a6c4438b747e984c8969a, type: 2}
+  - {fileID: 11400000, guid: 462ec8d8d2e267f44927c218d1e09e47, type: 2}
+  narrator: {fileID: 0}
+  Minute: 0
+  Hour: 0
+  KnowledgePoints: 0
+  MainTrack: {fileID: 0}

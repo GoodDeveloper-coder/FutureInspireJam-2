@@ -3,12 +3,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System;
+using Managers;
 
 namespace Dialogue
 {
     public class NodeParser : MonoBehaviour
     {
-
+        //public static event Action OnNarrationBegan = delegate { };
         public static event Action OnNarrationEnded = delegate { };
         [SerializeField] private DialogueGraph dialogue;
         [SerializeField] private GameObject dialogueBox;
@@ -28,14 +29,13 @@ namespace Dialogue
                 _responseTexts.Add(responseObjectList[i].GetComponentInChildren<TextMeshProUGUI>());
             }
         }
-
         public void BeginDialogue()
         {
+            Singleton.Instance.GameManager.StopPlayerInput();
             dialogueBox.SetActive(true);
             responseBox.SetActive(true);
-            _responseTexts = new List<TextMeshProUGUI>();
-            _doneWithAnswers = false;
-            _doneWithDialogue = false;
+            //_responseTexts = new List<TextMeshProUGUI>();
+            
             dialogue.Restart();
             _dialogueText.text = dialogue.current.text;
 
@@ -49,39 +49,21 @@ namespace Dialogue
             {
                 if (i < dialogue.current.answers.Count)
                 {
-                    _responseTexts[i].text = dialogue.current.answers[i].text;
+                    responseObjectList[i].SetActive(true);
+                    _responseTexts[i].enabled = false;
+                    _responseTexts[i].enabled = true;
+
+                    _responseTexts[i].SetText(dialogue.current.answers[i].text);
+
+
                 }
                 else
                 {
-                    _responseTexts[i].gameObject.SetActive(false);
+                    responseObjectList[i].gameObject.SetActive(false);
                 }
 
             }
-        }
-    private void Start()
-        {
-            
 
-            //dialogue.Restart();
-            //_dialogueText.text = dialogue.current.text;
-            //if (dialogue.current.answers.Count == 0)
-            //{
-            //    _doneWithAnswers = true;
-            //    responseBox.SetActive(false);
-            //}
-            
-            //for(int i = 0; i < _responseTexts.Count; ++i)
-            //{
-            //    if (i < dialogue.current.answers.Count)
-            //    {
-            //        _responseTexts[i].text = dialogue.current.answers[i].text;
-            //    }
-            //    else
-            //    {
-            //        _responseTexts[i].gameObject.SetActive(false);
-            //    }
-                
-            //}
         }
         public void AnswerGiven(int answerIndex)
         {
@@ -90,7 +72,10 @@ namespace Dialogue
             if (dialogue.current.answers.Count == 0)
             {
                 _doneWithAnswers = true;
-            } else
+                responseBox.SetActive(false);
+
+            }
+            else
             {
                 _doneWithAnswers = false;
                 responseBox.SetActive(true);
@@ -99,6 +84,9 @@ namespace Dialogue
             if (dialogue.current.text.Equals(_dialogueText.text))
             {
                 _doneWithDialogue = true;
+                OnNarrationEnded?.Invoke();
+                dialogueBox.SetActive(false);
+                responseBox.SetActive(false);
             }
 
             _dialogueText.text = dialogue.current.text;
@@ -107,6 +95,7 @@ namespace Dialogue
             {
                 if (i < dialogue.current.answers.Count)
                 {
+                    responseObjectList[i].SetActive(true);
                     _responseTexts[i].text = dialogue.current.answers[i].text;
                 } else
                 {
@@ -128,6 +117,10 @@ namespace Dialogue
                 {
                     dialogueBox.SetActive(false);
                     OnNarrationEnded?.Invoke();
+                    _doneWithAnswers = false;
+                    _doneWithDialogue = false;
+                    // Reset narrator state for next dialogue sequence
+
                 }
             }
         }

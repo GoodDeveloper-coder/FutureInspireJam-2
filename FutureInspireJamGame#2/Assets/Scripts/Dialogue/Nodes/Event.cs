@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using XNode;
 namespace Dialogue
 {
@@ -8,8 +9,9 @@ namespace Dialogue
     public class Event : DialogueBaseNode
     {
 
-        public SerializableEvent[] trigger; // Could use UnityEvent here, but UnityEvent has a bug that prevents it from serializing correctly on custom EditorWindows. So i implemented my own.
+        //public SerializableEvent[] trigger; // Could use UnityEvent here, but UnityEvent has a bug that prevents it from serializing correctly on custom EditorWindows. So i implemented my own.
 
+        public UnityEvent[] trigger;
         public override void Trigger()
         {
             for (int i = 0; i < trigger.Length; i++)

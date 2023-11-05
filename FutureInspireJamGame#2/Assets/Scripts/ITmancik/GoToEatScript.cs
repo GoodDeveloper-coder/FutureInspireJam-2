@@ -29,7 +29,7 @@ public class GoToEatScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (EatTime[ArrayIndex].hour == TimeManagerScript.Hour) {
+       if (EatTime[ArrayIndex].hour == Singleton.Instance.TimeManager.Hour) {
             StartCoroutine(ff());
        } 
     }
@@ -43,7 +43,7 @@ public class GoToEatScript : MonoBehaviour
         {
             FateOut.SetActive(true);
             FateIn.SetActive(false);
-            TimeManagerScript.Hour += 1;
+            Singleton.Instance.TimeManager.Hour += 1;
             CanAddTime = false;
             if (ArrayIndex < 5)
             {

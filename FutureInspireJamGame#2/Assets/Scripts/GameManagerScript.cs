@@ -28,6 +28,7 @@ namespace Managers
 
     public class GameManagerScript : MonoBehaviour
     {
+        //public static GameManagerScript instance;
         [SerializeField] private GameObject playerObject;
         [SerializeField] private List<GameEventSO> eventList;
         [SerializeField] private NodeParser narrator;
@@ -42,14 +43,21 @@ namespace Managers
         private Move playerMove;
         private Interact playerInteract;
         private GameState gameState;
-        private Days dayOfTheWeek;
+        //private Days dayOfTheWeek;
 
         private int eventIndex;
         private void Awake()
         {
+            //if (instance == null)
+            //{
+            //    instance = this;
+            //} else
+            //{
+            //    Destroy(this);
+            //}
             eventIndex = 0;
-            dayOfTheWeek = Days.Monday;
-            
+            //dayOfTheWeek = Days.Monday;
+
             playerMove = playerObject.GetComponent<Move>();
             playerInteract = playerObject.GetComponent<Interact>();
         }
@@ -62,12 +70,14 @@ namespace Managers
 
         private void MiniGameManager_OnMiniGameEnded()
         {
+            
             Debug.Log("MiniGame Ended");
             RestartPlayerInput();
         }
 
         private void NodeParser_OnNarrationEnded()
         {
+            
             Debug.Log("Narration Ended");
             RestartPlayerInput();
         }
@@ -82,15 +92,15 @@ namespace Managers
         // Update is called once per frame
         void Update()
         {
-            Minute = TimeManagerScript.Minute;
-            Hour = TimeManagerScript.Hour;
+            Minute = Singleton.Instance.TimeManager.Minute;
+            Hour = Singleton.Instance.TimeManager.Hour;
             if (eventIndex > eventList.Count) return;
-            if (dayOfTheWeek == eventList[eventIndex].day && Hour == eventList[eventIndex].hour)
+            if (Singleton.Instance.TimeManager.GetDay() == eventList[eventIndex].day && Hour == eventList[eventIndex].hour)
             {
                 narrator.SetDialogueGraph(eventList[eventIndex].dialogueGraph);
                 narrator.BeginDialogue();
-                StopPlayerInput();
-                TimeManagerScript.timePaused = true;
+                //StopPlayerInput();
+                Singleton.Instance.TimeManager.PauseTime();
                 eventIndex++;
             }
         }
@@ -98,13 +108,13 @@ namespace Managers
         {
             playerMove.StopMovement();
             playerInteract.StopInteraction();
-            TimeManagerScript.timePaused = true;
+            Singleton.Instance.TimeManager.PauseTime();
         }
         public void RestartPlayerInput()
         {
             playerMove.Restartmovement();
             playerInteract.RestartInteraction();
-            TimeManagerScript.timePaused = false;
+            Singleton.Instance.TimeManager.ResumeTime();
         }
     }
 }

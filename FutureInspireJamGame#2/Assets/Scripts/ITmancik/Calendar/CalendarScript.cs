@@ -1,3 +1,4 @@
+using Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class CalendarScript : MonoBehaviour
     public GameObject Thursday;
     public GameObject Friday;
 
-    private int CalendarDay;
+    private Days CalendarDay;
 
     // Start is called before the first frame update
     void Start()
@@ -21,20 +22,20 @@ public class CalendarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CalendarDay = TimeManagerScript.Day;
+        CalendarDay = Singleton.Instance.TimeManager.GetDay();
 
-        if (CalendarDay == 1)
+        if (CalendarDay == Days.Monday)
         {
             //Monday.SetActive(true);
         }
 
-        if (CalendarDay == 2)
+        if (CalendarDay == Days.Tesuday)
         {
             Monday.SetActive(true);
             //Tuesday.SetActive(true);
         }
 
-        if (CalendarDay == 3)
+        if (CalendarDay == Days.Wedndesday)
         {
             Tuesday.SetActive(true);
             //Monday.SetActive(false);
@@ -42,7 +43,7 @@ public class CalendarScript : MonoBehaviour
             //Wednesday.SetActive(true);
         }
 
-        if (CalendarDay == 4)
+        if (CalendarDay == Days.Thursday)
         {
             Wednesday.SetActive(true);
             //Monday.SetActive(false);
@@ -52,7 +53,7 @@ public class CalendarScript : MonoBehaviour
         }
 
 
-        if (CalendarDay == 5)
+        if (CalendarDay == Days.Friday)
         {
             Thursday.SetActive(true);
         }

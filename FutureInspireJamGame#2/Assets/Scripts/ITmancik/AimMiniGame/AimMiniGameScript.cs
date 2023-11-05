@@ -1,3 +1,4 @@
+using Managers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -102,7 +103,7 @@ namespace MiniGames
                 Debug.Log(randomSpawnOffset);
                 yield return new WaitForSeconds(speed);
                 GameObject spawnAimObject = Instantiate(SpawnObjects[ObjRandomNumber], randomSpawnOffset, Quaternion.identity);
-                spawnAimObject.transform.SetParent(transform, true);
+                spawnAimObject.transform.SetParent(minigameCanvas.transform, true);
                 
             }
             
@@ -119,6 +120,7 @@ namespace MiniGames
             NegativePoints = 0;
             gameState = MiniGameState.WAITINGFORSTART;
             gameOver = true;
+            Singleton.Instance.TimeManager.MoveUpByHalfAnHour();
         }
 
         public bool MiniGameEnded()

@@ -34,7 +34,7 @@ namespace Interaction
 
         public void InteractionStop()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
     }
 }

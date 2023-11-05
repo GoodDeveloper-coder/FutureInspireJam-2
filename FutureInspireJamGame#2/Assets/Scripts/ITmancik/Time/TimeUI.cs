@@ -1,3 +1,4 @@
+using Managers;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,7 +22,7 @@ public class TimeUI : MonoBehaviour
 
     private void UpdateTime()
     {
-        TimeText.text = $"{TimeManagerScript.Hour}:{TimeManagerScript.Minute:00}";
+        TimeText.text = $"{Singleton.Instance.TimeManager.Hour}:{Singleton.Instance.TimeManager.Minute:00}";
     }
 
 }
