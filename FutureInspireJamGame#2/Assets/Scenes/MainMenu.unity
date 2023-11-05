@@ -1479,7 +1479,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Character sprites were borrowed, and all music was licensed under CC BY
+  m_text: 'Some art assets were borrowed.
+
+    All music was licensed under CC BY
     4.0
 
     Check the description for links.'
