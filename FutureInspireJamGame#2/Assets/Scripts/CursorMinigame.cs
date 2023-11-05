@@ -42,6 +42,8 @@ public class CursorMinigame : Minigame
     // Start is called before the first frame update
     void Start()
     {
+        transform.SetParent(Camera.main.transform);
+        cursor.transform.SetParent(Camera.main.transform);
         cursor.gameObject.SetActive(false);
     }
 

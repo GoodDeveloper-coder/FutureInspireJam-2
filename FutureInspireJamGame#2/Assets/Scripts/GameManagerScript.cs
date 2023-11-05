@@ -35,7 +35,8 @@ namespace Managers
 
         public int Minute;
         public int Hour;
-        
+
+        public int snacks;
 
         public int KnowledgePoints;
 
