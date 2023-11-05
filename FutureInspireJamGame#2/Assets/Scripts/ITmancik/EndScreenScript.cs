@@ -1,3 +1,5 @@
+using Managers;
+using MyBox;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +18,7 @@ public class EndScreenScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TimeManagerScript.Day >= 5)
+        if (Singleton.Instance.TimeManager.GetDay() >= Days.Friday)
         {
             StartCoroutine(EndScreen());
         }
