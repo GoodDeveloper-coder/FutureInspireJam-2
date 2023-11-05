@@ -51,7 +51,7 @@ public class AudioManagerScript : MonoBehaviour
                 musicPlayer1.Stop();
                 musicPlayer1.clip = night ? nightMusic[dayIndex] : dayIndex < dayMusic.Length ? dayMusic[dayIndex] : endMusic;
                 musicPlayer1.Play();
-                if (night || dayIndex > 0)
+                if (night || dayIndex > 0 && dayIndex < 4)
                 {
                     ambiencePlayer1.volume = 1;
                     ambiencePlayer1.Stop();
@@ -60,13 +60,13 @@ public class AudioManagerScript : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.N)) SetToNight();
-        if (Input.GetKeyDown(KeyCode.D)) SetToDay();
-        if (Input.GetKeyDown(KeyCode.S)) StartMinigame();
-        if (Input.GetKeyDown(KeyCode.E)) EndMinigame();
-        if (Input.GetKeyDown(KeyCode.P)) ActivatePlumberAmbience();
-        if (Input.GetKeyDown(KeyCode.O)) DeactivatePlumberAmbience();
-        if (Input.GetKeyDown(KeyCode.K)) PlayDoorKnock();
+        //if (Input.GetKeyDown(KeyCode.N)) SetToNight();
+        //if (Input.GetKeyDown(KeyCode.D)) SetToDay();
+        //if (Input.GetKeyDown(KeyCode.S)) StartMinigame();
+        //if (Input.GetKeyDown(KeyCode.E)) EndMinigame();
+        //if (Input.GetKeyDown(KeyCode.P)) ActivatePlumberAmbience();
+        //if (Input.GetKeyDown(KeyCode.O)) DeactivatePlumberAmbience();
+        //if (Input.GetKeyDown(KeyCode.K)) PlayDoorKnock();
     }
 
     public void PlayDoorKnock()
@@ -87,6 +87,8 @@ public class AudioManagerScript : MonoBehaviour
     public void StartMinigame()
     {
         musicPlayer1.Pause();
+        ambiencePlayer1.Pause();
+        ambiencePlayer2.volume = 0;
         musicPlayer2.Play();
     }
 
@@ -94,6 +96,8 @@ public class AudioManagerScript : MonoBehaviour
     {
         musicPlayer2.Stop();
         musicPlayer1.Play();
+        ambiencePlayer1.Play();
+        ambiencePlayer2.volume = 1;
     }
 
     public void SetToNight()
