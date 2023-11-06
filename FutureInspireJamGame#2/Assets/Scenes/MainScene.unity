@@ -3438,7 +3438,7 @@ GameObject:
   - component: {fileID: 535827353}
   - component: {fileID: 535827352}
   m_Layer: 0
-  m_Name: Audio
+  m_Name: Audio Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3464,7 +3464,7 @@ MonoBehaviour:
   dayMusic:
   - {fileID: 8300000, guid: dc4d9527f005606498efd14b71d46e76, type: 3}
   - {fileID: 8300000, guid: 65a166308d25eb04598051c77c56c4fc, type: 3}
-  - {fileID: 8300000, guid: 6fd7062db2038de4293231ed1a7c4ecb, type: 3}
+  - {fileID: 8300000, guid: 997d3b0f7f328db4b89b26ff8a52f92a, type: 3}
   - {fileID: 8300000, guid: ae6594f0fd8abe640934088a0fbde85c, type: 3}
   nightMusic:
   - {fileID: 8300000, guid: 207fc8f764b5f3545ba58b4420540673, type: 3}
