@@ -52,7 +52,7 @@ public class GoToEatScript : MonoBehaviour
             FateIn.SetActive(false);
             Singleton.Instance.TimeManager.Hour += 1;
             CanAddTime = false;
-            if (ArrayIndex < 5)
+            if (ArrayIndex < 4)
             {
                 ArrayIndex++;
                 RandomTimeToGoToEat();
@@ -73,7 +73,7 @@ public class GoToEatScript : MonoBehaviour
             }
             */
         }
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(6f);
         //FateIn.SetActive(false);
         FateOut.SetActive(false);
         CanAddTime = true;
@@ -83,7 +83,13 @@ public class GoToEatScript : MonoBehaviour
     void RandomTimeToGoToEat()
     {
         RandomNumber = UnityEngine.Random.Range(1, 3);
+        bool OnlyForFirstDay = true;
 
+        if (OnlyForFirstDay)
+        {
+            RandomNumber = 2;
+            OnlyForFirstDay = false;
+        }
         if (RandomNumber == 1)
         {
             EatTime[ArrayIndex].hour = 17;

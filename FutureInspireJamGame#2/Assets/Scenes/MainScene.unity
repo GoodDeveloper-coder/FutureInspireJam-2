@@ -2399,6 +2399,7 @@ GameObject:
   - component: {fileID: 473956904}
   - component: {fileID: 473956905}
   - component: {fileID: 473956906}
+  - component: {fileID: 473956907}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2586,6 +2587,23 @@ MonoBehaviour:
   FateIn: {fileID: 1184777557}
   EndScreenMenu: {fileID: 1611195137}
   FinalPointsText: {fileID: 1377965237}
+--- !u!114 &473956907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473956898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00fcd1a60289eb4e9e26cff690332e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FateIn: {fileID: 1184777557}
+  FateOut: {fileID: 1622301903}
+  FateOutScript: {fileID: 1841557035}
+  TestHour: 0
+  TestMinute: 0
 --- !u!1 &488442730
 GameObject:
   m_ObjectHideFlags: 0
@@ -6175,7 +6193,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 51
   m_TargetDisplay: 0
 --- !u!224 &1115009595
 RectTransform:
