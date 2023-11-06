@@ -36,6 +36,7 @@ namespace Managers
         // Update is called once per frame
         void Update()
         {
+            timePaused = true;
             if (timePaused) return;
 
             timer -= Time.deltaTime;
