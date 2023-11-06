@@ -52,6 +52,7 @@ namespace Interaction
             if (_currentSnacksCount > 0){
                 narrator.SetDialogueGraph(snacksAvailableMsg);
                 narrator.BeginDialogue();
+                StartCoroutine(CheckForDialogueEnd());
             }
             
         }
@@ -87,6 +88,15 @@ namespace Interaction
             if (_currentSnacksCount > 0)
             {
                 _isInteractable = true;
+            }
+        }
+        IEnumerator CheckForDialogueEnd()
+        {
+            yield return new WaitUntil(() => narrator.IsDoneWithDialogue());
+
+            if (narrator.ReturnLastAnswer())
+            {
+                ConsumeSnack();
             }
         }
     }

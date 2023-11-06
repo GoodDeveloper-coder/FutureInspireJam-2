@@ -1,3 +1,4 @@
+using Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,5 +9,7 @@ namespace MiniGames
     {
         public void MiniGameStart();
         public bool MiniGameEnded();
+
+        public MiniGameState GetGameState();
     }
 }

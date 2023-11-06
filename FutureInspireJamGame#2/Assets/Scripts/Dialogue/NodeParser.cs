@@ -21,6 +21,7 @@ namespace Dialogue
 
         private bool _doneWithAnswers;
         private bool _doneWithDialogue;
+        private int previousAnswer;
         private void Awake()
         {
             _dialogueText = dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
@@ -73,6 +74,7 @@ namespace Dialogue
             {
                 _doneWithAnswers = true;
                 responseBox.SetActive(false);
+                previousAnswer = answerIndex;
 
             }
             else
@@ -128,6 +130,16 @@ namespace Dialogue
         public void SetDialogueGraph(DialogueGraph dialogueGraph)
         {
             dialogue = dialogueGraph;
+        }
+
+        public bool ReturnLastAnswer()
+        {
+            if (previousAnswer == 0) return true;
+            else return false;
+        }
+        public bool IsDoneWithDialogue()
+        {
+            return _doneWithDialogue;
         }
     }
 }

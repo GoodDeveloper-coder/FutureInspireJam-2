@@ -9,15 +9,7 @@ using UnityEngine.InputSystem;
 namespace MiniGames
 {
 
-    public enum MiniGameState
-
-    {
-        WAITINGFORSTART,
-        PLAYING,
-        PAUSED,
-        ENDEDWON,
-        ENDEDLOST
-    }
+    
     public class AimMiniGameScript : MonoBehaviour, IMiniGame
     {
         public static event Action OnMiniGameEnded = delegate { };
@@ -126,6 +118,11 @@ namespace MiniGames
         public bool MiniGameEnded()
         {
             return gameOver;
+        }
+
+        public MiniGameState GetGameState()
+        {
+            return gameState;
         }
     }
 }
