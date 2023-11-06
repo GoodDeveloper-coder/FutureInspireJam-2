@@ -21,7 +21,6 @@ namespace Dialogue
 
         private bool _doneWithAnswers;
         private bool _doneWithDialogue;
-        private int previousAnswer;
         private void Awake()
         {
             _dialogueText = dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
@@ -32,7 +31,7 @@ namespace Dialogue
         }
         public void BeginDialogue()
         {
-            //Singleton.Instance.GameManager.StopPlayerInput();
+            Singleton.Instance.GameManager.StopPlayerInput();
             dialogueBox.SetActive(true);
             responseBox.SetActive(true);
             //_responseTexts = new List<TextMeshProUGUI>();
@@ -68,12 +67,13 @@ namespace Dialogue
         }
         public void AnswerGiven(int answerIndex)
         {
-            dialogue.AnswerQuestion(answerIndex);
-            previousAnswer = answerIndex;
+            if (answerIndex != - 1) dialogue.AnswerQuestion(answerIndex);
+
             if (dialogue.current.answers.Count == 0)
             {
                 _doneWithAnswers = true;
                 responseBox.SetActive(false);
+
             }
             else
             {
@@ -84,7 +84,7 @@ namespace Dialogue
             if (dialogue.current.text.Equals(_dialogueText.text))
             {
                 _doneWithDialogue = true;
-                //OnNarrationEnded?.Invoke();
+                OnNarrationEnded?.Invoke();
                 dialogueBox.SetActive(false);
                 responseBox.SetActive(false);
             }
@@ -116,8 +116,7 @@ namespace Dialogue
                 if (_doneWithDialogue)
                 {
                     dialogueBox.SetActive(false);
-                    responseBox.SetActive(false);
-                    Singleton.Instance.GameManager.RestartPlayerInput();
+                    OnNarrationEnded?.Invoke();
                     _doneWithAnswers = false;
                     _doneWithDialogue = false;
                     // Reset narrator state for next dialogue sequence
@@ -129,19 +128,6 @@ namespace Dialogue
         public void SetDialogueGraph(DialogueGraph dialogueGraph)
         {
             dialogue = dialogueGraph;
-            _doneWithDialogue = false;
-            _doneWithAnswers = false;
-
-        }
-
-        public bool ReturnLastAnswer()
-        {
-            if (previousAnswer == 0) return true;
-            else return false;
-        }
-        public bool IsDoneWithDialogue()
-        {
-            return _doneWithDialogue;
         }
     }
 }

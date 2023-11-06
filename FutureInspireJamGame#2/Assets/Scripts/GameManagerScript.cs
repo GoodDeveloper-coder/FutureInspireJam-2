@@ -48,24 +48,37 @@ namespace Managers
         private int eventIndex;
         private void Awake()
         {
-
+            //if (instance == null)
+            //{
+            //    instance = this;
+            //} else
+            //{
+            //    Destroy(this);
+            //}
             eventIndex = 0;
+            //dayOfTheWeek = Days.Monday;
 
             playerMove = playerObject.GetComponent<Move>();
             playerInteract = playerObject.GetComponent<Interact>();
         }
         private void OnEnable()
         {
+            RestartPlayerInput();
             NodeParser.OnNarrationEnded += NodeParser_OnNarrationEnded;
             MiniGameManager.OnMiniGameEnded += MiniGameManager_OnMiniGameEnded;
         }
+
         private void MiniGameManager_OnMiniGameEnded()
         {
+            
+            Debug.Log("MiniGame Ended");
             RestartPlayerInput();
         }
 
         private void NodeParser_OnNarrationEnded()
         {
+            
+            Debug.Log("Narration Ended");
             RestartPlayerInput();
         }
 
@@ -86,8 +99,8 @@ namespace Managers
             {
                 narrator.SetDialogueGraph(eventList[eventIndex].dialogueGraph);
                 narrator.BeginDialogue();
-                StopPlayerInput();
-                //Singleton.Instance.TimeManager.PauseTime();
+                //StopPlayerInput();
+                Singleton.Instance.TimeManager.PauseTime();
                 eventIndex++;
             }
         }

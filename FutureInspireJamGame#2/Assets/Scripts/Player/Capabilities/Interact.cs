@@ -43,6 +43,7 @@ namespace Capabilities
             interactableObject.InteractionStart();
             if (!_currentInteractables.Exists(x => x.interactable == interactableObject))
             {
+                Debug.Log("interactable added");
                 _currentInteractables.Add(new InteractableData { interactable = interactableObject, transform = collision.transform });
             }
 

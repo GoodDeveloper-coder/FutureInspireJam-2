@@ -21,10 +21,10 @@ namespace Interaction
             if (!isInteractable) return;
             for (int i = 0; i < events.Count; ++i)
             {
-                //Debug.Log(i);
+                Debug.Log(i);
                 events[i]?.Invoke();
             }
-            //isInteractable = false;
+            isInteractable = false;
         }
 
         public void InteractionStart()

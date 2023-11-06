@@ -37,10 +37,5 @@ namespace MiniGames
         {
             return minigame.GetWin() || minigame.GetLose();
         }
-
-        public MiniGameState GetMiniGameState()
-        {
-            return minigame.GetGameState();
-        }
     }
 }

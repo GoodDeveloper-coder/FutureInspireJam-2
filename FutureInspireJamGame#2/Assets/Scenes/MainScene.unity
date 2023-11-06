@@ -307,7 +307,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1826705638}
         m_TargetAssemblyTypeName: MiniGames.MiniGameManager, Assembly-CSharp
-        m_MethodName: ShouldStudy
+        m_MethodName: ChooseRandomMiniGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -358,7 +358,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.99697644}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -369,7 +369,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.9994675}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &40085514
 GameObject:
@@ -1501,81 +1501,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282733224}
   m_CullTransparentMesh: 1
---- !u!1 &289149873
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 289149874}
-  - component: {fileID: 289149876}
-  - component: {fileID: 289149875}
-  m_Layer: 6
-  m_Name: Door
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &289149874
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289149873}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1267133022}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &289149875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289149873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee79a8df51550c7459de8327291ad24b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  narrator: {fileID: 1102998372}
-  cantGoOut: {fileID: 11400000, guid: 8dff4ecd55935894f9ea167afd889b8e, type: 2}
-  canGoOut: {fileID: 11400000, guid: e346eae44371ad640ae9f3034df7543c, type: 2}
-  miniGameManager: {fileID: 1826705638}
---- !u!61 &289149876
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289149873}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &307992636
 GameObject:
   m_ObjectHideFlags: 0
@@ -7470,10 +7395,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 411097570126107686, guid: edb55adaede796347a497050161a746a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3608078314843190514, guid: edb55adaede796347a497050161a746a, type: 3}
       propertyPath: m_text
       value: Stan
@@ -7589,7 +7510,7 @@ PrefabInstance:
     - target: {fileID: 4377297850864175500, guid: edb55adaede796347a497050161a746a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1102998372}
+      objectReference: {fileID: 1882679113}
     - target: {fileID: 4377297850864175500, guid: edb55adaede796347a497050161a746a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AnswerGiven
@@ -7628,7 +7549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4377297850889539311, guid: edb55adaede796347a497050161a746a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4377297851119231982, guid: edb55adaede796347a497050161a746a, type: 3}
       propertyPath: m_Color.a
@@ -7726,14 +7647,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4377297851407291032, guid: edb55adaede796347a497050161a746a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1102998372}
-    - target: {fileID: 4377297851407291032, guid: edb55adaede796347a497050161a746a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AnswerGiven
-      objectReference: {fileID: 0}
     - target: {fileID: 4377297851407291038, guid: edb55adaede796347a497050161a746a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7818,14 +7731,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4377297851731150830, guid: edb55adaede796347a497050161a746a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1102998372}
-    - target: {fileID: 4377297851731150830, guid: edb55adaede796347a497050161a746a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AnswerGiven
-      objectReference: {fileID: 0}
     - target: {fileID: 4377297852000650530, guid: edb55adaede796347a497050161a746a, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -7854,10 +7759,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -290
       objectReference: {fileID: 0}
-    - target: {fileID: 4377297852370926941, guid: edb55adaede796347a497050161a746a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4377297852370926942, guid: edb55adaede796347a497050161a746a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -7876,10 +7777,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4377297852370926943, guid: edb55adaede796347a497050161a746a, type: 3}
       propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4377297852571648557, guid: edb55adaede796347a497050161a746a, type: 3}
-      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4377297852571648558, guid: edb55adaede796347a497050161a746a, type: 3}
@@ -8103,7 +8000,6 @@ Transform:
   - {fileID: 38332136}
   - {fileID: 1737597691}
   - {fileID: 1955716285}
-  - {fileID: 289149874}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9067,7 +8963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1466692034
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10584,16 +10480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e066e000308ddbf4e95a0cab31d8b2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  narrator: {fileID: 1102998372}
-  gameIntros:
-  - {fileID: 902106028}
-  - {fileID: 319044506}
-  - {fileID: 745565920}
-  rewardText:
-  - {fileID: 1031725205}
-  - {fileID: 1746259012}
-  - {fileID: 1776446907}
-  endScreenRewardText: {fileID: 1800085333}
   miniGamesList:
   - mode: 0
     unityReference: {fileID: 2074983336}
@@ -10607,11 +10493,6 @@ MonoBehaviour:
     unityReference: {fileID: 1951790432}
     rawReference:
       rid: -2
-  wantToStudy: {fileID: 11400000, guid: 20fc65e72084c1a4297e45082f80b2fb, type: 2}
-  cantStudy: {fileID: 11400000, guid: 15cd0d051693c764793e489e6292b949, type: 2}
-  continueStudying: {fileID: 0}
-  winScreen: {fileID: 1918651982}
-  loseScreen: {fileID: 1208224679}
   references:
     version: 2
     RefIds:
@@ -11021,18 +10902,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Dialogue.NodeParser, Assembly-CSharp
         m_MethodName: NextDialogue
         m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1826705638}
-        m_TargetAssemblyTypeName: MiniGames.MiniGameManager, Assembly-CSharp
-        m_MethodName: SkipIntro
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11938,28 +11807,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7109817907780914604, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
   m_PrefabInstance: {fileID: 7109817908111079628}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951790429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6de2bc25daae6834e93b8d8525ca6816, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  introTime: 0
-  circlePrefab: {fileID: 0}
-  circleCount: 0
-  minShuffleTime: 0
-  maxShuffleTime: 0
-  minShuffleCount: 0
-  maxShuffleCount: 0
-  circleDistanceFromCentre: 0
-  circleSize: 0
---- !u!114 &1951790432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951790429}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f9799d1708ad034cbe7f9770210d8aa, type: 3}
