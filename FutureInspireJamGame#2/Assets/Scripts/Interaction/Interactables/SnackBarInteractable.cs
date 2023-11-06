@@ -46,6 +46,7 @@ namespace Interaction
             {
                 narrator.SetDialogueGraph(snackEatenRecentlyMsg);
                 narrator.BeginDialogue();
+                //StartCoroutine(CheckForDialogueEnd());
                 return;
             }
 

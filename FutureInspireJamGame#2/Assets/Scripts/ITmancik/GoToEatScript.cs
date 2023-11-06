@@ -1,4 +1,5 @@
 using Managers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,6 +8,7 @@ using UnityEngine.InputSystem;
 
 public class GoToEatScript : MonoBehaviour
 {
+    public static event Action OnGoToEat = delegate { };
     public GameEventSO[] EatTime;
 
     public int ArrayIndex = 0;
@@ -37,7 +39,12 @@ public class GoToEatScript : MonoBehaviour
     IEnumerator ff()
     {
         yield return new WaitUntil(() => Mouse.current.leftButton.wasPressedThisFrame);
-        if (CanMakeFateIn) FateIn.SetActive(true); CanMakeFateIn = false;
+        if (CanMakeFateIn)
+        {
+            FateIn.SetActive(true); CanMakeFateIn = false;
+            Debug.Log("Fading out?");
+            OnGoToEat?.Invoke();
+        }
         yield return new WaitForSeconds(5f);
         if (CanAddTime)
         {
@@ -75,7 +82,7 @@ public class GoToEatScript : MonoBehaviour
 
     void RandomTimeToGoToEat()
     {
-        RandomNumber = Random.Range(1, 3);
+        RandomNumber = UnityEngine.Random.Range(1, 3);
 
         if (RandomNumber == 1)
         {
