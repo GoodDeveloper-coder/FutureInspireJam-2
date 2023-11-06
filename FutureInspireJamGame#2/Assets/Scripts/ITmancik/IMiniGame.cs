@@ -10,6 +10,6 @@ namespace MiniGames
         public void MiniGameStart();
         public bool MiniGameEnded();
 
-        public MiniGameState GetGameState();
+        public MiniGameState GetMiniGameState();
     }
 }

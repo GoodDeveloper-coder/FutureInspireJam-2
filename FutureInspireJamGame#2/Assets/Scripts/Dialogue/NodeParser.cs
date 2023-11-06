@@ -32,7 +32,7 @@ namespace Dialogue
         }
         public void BeginDialogue()
         {
-            Singleton.Instance.GameManager.StopPlayerInput();
+            //Singleton.Instance.GameManager.StopPlayerInput();
             dialogueBox.SetActive(true);
             responseBox.SetActive(true);
             //_responseTexts = new List<TextMeshProUGUI>();
@@ -68,14 +68,12 @@ namespace Dialogue
         }
         public void AnswerGiven(int answerIndex)
         {
-            if (answerIndex != - 1) dialogue.AnswerQuestion(answerIndex);
-
+            dialogue.AnswerQuestion(answerIndex);
+            previousAnswer = answerIndex;
             if (dialogue.current.answers.Count == 0)
             {
                 _doneWithAnswers = true;
                 responseBox.SetActive(false);
-                previousAnswer = answerIndex;
-
             }
             else
             {
@@ -86,7 +84,7 @@ namespace Dialogue
             if (dialogue.current.text.Equals(_dialogueText.text))
             {
                 _doneWithDialogue = true;
-                OnNarrationEnded?.Invoke();
+                //OnNarrationEnded?.Invoke();
                 dialogueBox.SetActive(false);
                 responseBox.SetActive(false);
             }
@@ -118,7 +116,8 @@ namespace Dialogue
                 if (_doneWithDialogue)
                 {
                     dialogueBox.SetActive(false);
-                    OnNarrationEnded?.Invoke();
+                    responseBox.SetActive(false);
+                    Singleton.Instance.GameManager.RestartPlayerInput();
                     _doneWithAnswers = false;
                     _doneWithDialogue = false;
                     // Reset narrator state for next dialogue sequence
@@ -130,6 +129,9 @@ namespace Dialogue
         public void SetDialogueGraph(DialogueGraph dialogueGraph)
         {
             dialogue = dialogueGraph;
+            _doneWithDialogue = false;
+            _doneWithAnswers = false;
+
         }
 
         public bool ReturnLastAnswer()

@@ -12,7 +12,7 @@ namespace MiniGames
     
     public class AimMiniGameScript : MonoBehaviour, IMiniGame
     {
-        public static event Action OnMiniGameEnded = delegate { };
+        //public static event Action OnMiniGameEnded = delegate { };
         public GameObject[] SpawnObjects;
         public Transform[] SpawnPositions;
         public float speed = 3;
@@ -56,20 +56,20 @@ namespace MiniGames
 
             if (PositivePoints >= PointsToWin)
             {
-                WinMenu.SetActive(true);
+                //WinMenu.SetActive(true);
                 if (objectSpawnerCoroutine != null) StopCoroutine(objectSpawnerCoroutine);
-                OnMiniGameEnded?.Invoke();
+                //OnMiniGameEnded?.Invoke();
                 gameState = MiniGameState.ENDEDWON;
-                StartCoroutine(ExitMiniGame());
+                //StartCoroutine(ExitMiniGame());
             }
 
             if (NegativePoints >= PointsToLoose)
             {
-                LooseMenu.SetActive(true);
-                OnMiniGameEnded?.Invoke();
+                //LooseMenu.SetActive(true);
+                //OnMiniGameEnded?.Invoke();
                 if (objectSpawnerCoroutine != null) StopCoroutine(objectSpawnerCoroutine);
                 gameState = MiniGameState.ENDEDLOST;
-                StartCoroutine(ExitMiniGame());
+                //StartCoroutine(ExitMiniGame());
             }
 
 
@@ -120,7 +120,7 @@ namespace MiniGames
             return gameOver;
         }
 
-        public MiniGameState GetGameState()
+        public MiniGameState GetMiniGameState()
         {
             return gameState;
         }
