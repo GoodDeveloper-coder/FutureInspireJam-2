@@ -57,8 +57,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   character: {fileID: 0}
-  text: "The SP reward also increases with each successive win\u2026 until the next
-    time I have a break, where it will reset."
+  text: The SP reward also increases with each successive win until the next time
+    I have a break, then it will reset.
   answers: []
 --- !u!114 &-5578496393803814790
 MonoBehaviour:
@@ -167,7 +167,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: input
-        node: {fileID: -4548321345384526871}
+        node: {fileID: -618983989542566891}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -239,66 +239,6 @@ MonoBehaviour:
   text: But as of now, the only way to restore my focus is by having breaks.  I need
     to be smart about how often that will be.
   answers: []
---- !u!114 &-4548321345384526871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc886fa8d9e49da44906eecc4fe4abf4, type: 3}
-  m_Name: Chat
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 6792, y: 296}
-  ports:
-    keys:
-    - answers
-    - input
-    - output
-    values:
-    - _fieldName: answers
-      _node: {fileID: -4548321345384526871}
-      _typeQualifiedName: System.Collections.Generic.List`1[[Dialogue.Chat+Answer,
-        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
-        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: input
-      _node: {fileID: -4548321345384526871}
-      _typeQualifiedName: Dialogue.DialogueBaseNode, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: output
-        node: {fileID: -4912832345563032044}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: output
-      _node: {fileID: -4548321345384526871}
-      _typeQualifiedName: Dialogue.DialogueBaseNode, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -618983989542566891}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  input: {fileID: 0}
-  output: {fileID: 0}
-  character: {fileID: 0}
-  text: There may also be some random occurrences around the house that happen unexpectedly,
-    and they too would affect my ability to study.
-  answers: []
 --- !u!114 &-4129323605107237942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,7 +252,7 @@ MonoBehaviour:
   m_Name: Chat
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8360, y: 456}
+  position: {x: 7752, y: 360}
   ports:
     keys:
     - answers
@@ -607,7 +547,7 @@ MonoBehaviour:
   m_Name: Chat
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7260.8525, y: 334.20782}
+  position: {x: 6856, y: 328}
   ports:
     keys:
     - answers
@@ -630,7 +570,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: output
-        node: {fileID: -4548321345384526871}
+        node: {fileID: -4912832345563032044}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -651,8 +591,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   character: {fileID: 0}
-  text: "Finally, I can go look at the calendar to check the date in case I forget. 
-    It\u2019s on that bottom wall."
+  text: Finally, I can look at my calendar at any time to check the date in case
+    I forget.
   answers: []
 --- !u!114 &-456446652339911831
 MonoBehaviour:
@@ -711,8 +651,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   character: {fileID: 0}
-  text: "I\u2019ll need to do a lot of study after school every day leading up \u2018til
-    Friday if I want to pass that test."
+  text: "I\u2019ll need to do a lot of study after school every day leading up to
+    that test if I want a passing grade."
   answers: []
 --- !u!114 &-188269957351094874
 MonoBehaviour:
@@ -799,7 +739,6 @@ MonoBehaviour:
   - {fileID: 6897763054445523806}
   - {fileID: -4646180441852201174}
   - {fileID: -4912832345563032044}
-  - {fileID: -4548321345384526871}
   - {fileID: -618983989542566891}
   - {fileID: 7617016767832303908}
   - {fileID: -4129323605107237942}
@@ -921,8 +860,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   character: {fileID: 0}
-  text: "Anyway, I have a test this Friday that I\u2019m not even remotely prepared
-    for."
+  text: "Anyway, in class I was reminded of a test this Friday that I\u2019d completely
+    forgotten about."
   answers: []
 --- !u!114 &5505007035923283853
 MonoBehaviour:
@@ -981,8 +920,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   character: {fileID: 0}
-  text: "If I fail any minigame, however, I\u2019ll be forced to take a break from
-    studying."
+  text: "If I fail any minigame, however, I\u2019ll need to take a break before I
+    can keep studying."
   answers: []
 --- !u!114 &6897763054445523806
 MonoBehaviour:
@@ -1041,7 +980,7 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   character: {fileID: 0}
-  text: Wish I had some snacks here to help keep me energized.  Maybe I can get some
+  text: Wish I had some snacks here to help keep me energised.  Maybe I can get some
     tomorrow.
   answers: []
 --- !u!114 &6976002135724036539
@@ -1116,7 +1055,7 @@ MonoBehaviour:
   m_Name: Chat
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7844.881, y: 429.65848}
+  position: {x: 7352, y: 344}
   ports:
     keys:
     - answers

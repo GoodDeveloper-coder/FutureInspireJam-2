@@ -372,7 +372,7 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   character: {fileID: 0}
-  text: "Because I\u2019m still far from having enough KP to pass that test!"
+  text: "Because I\u2019m still far from having enough SP to pass that test!"
   answers: []
 --- !u!114 &7454432052800456752
 MonoBehaviour:

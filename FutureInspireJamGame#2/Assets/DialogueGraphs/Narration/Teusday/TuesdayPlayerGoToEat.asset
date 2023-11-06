@@ -51,7 +51,7 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   character: {fileID: 0}
-  text: I'm so hungry i think it's time for dinner.
+  text: Dinnertime!  We can keep studying later.
   answers: []
 --- !u!114 &11400000
 MonoBehaviour:

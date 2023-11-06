@@ -2420,11 +2420,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 97ee9380db722fb4b9a417d4aa11cf1f, type: 2}
   - {fileID: 11400000, guid: 86eb59bdb52a6c4438b747e984c8969a, type: 2}
   narrator: {fileID: 1882679113}
+  preMinigameRewardText: []
+  postMinigameRewardText: []
+  gradeText: {fileID: 0}
   Minute: 0
   Hour: 0
   snacks: 0
   KnowledgePoints: 0
-  MainTrack: {fileID: 0}
 --- !u!114 &473956903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8544,11 +8546,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 86eb59bdb52a6c4438b747e984c8969a, type: 2}
   - {fileID: 11400000, guid: 462ec8d8d2e267f44927c218d1e09e47, type: 2}
   narrator: {fileID: 1102998372}
+  preMinigameRewardText: []
+  postMinigameRewardText: []
+  gradeText: {fileID: 0}
   Minute: 0
   Hour: 0
   snacks: 0
   KnowledgePoints: 0
-  MainTrack: {fileID: 0}
 --- !u!1 &1420327928
 GameObject:
   m_ObjectHideFlags: 0
@@ -10804,10 +10808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e066e000308ddbf4e95a0cab31d8b2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameIntros:
-  - {fileID: 902106028}
-  - {fileID: 319044506}
-  - {fileID: 745565920}
   miniGamesList:
   - mode: 0
     unityReference: {fileID: 2074983336}
