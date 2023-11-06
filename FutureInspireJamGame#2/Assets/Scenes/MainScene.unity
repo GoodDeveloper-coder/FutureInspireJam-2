@@ -6973,73 +6973,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1182079862
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1182079863}
-  - component: {fileID: 1182079865}
-  - component: {fileID: 1182079864}
-  m_Layer: 0
-  m_Name: Cursor Minigame
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1182079863
+--- !u!4 &1182079863 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7498268228175757096, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+  m_PrefabInstance: {fileID: 7498268227143099487}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182079862}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1826705637}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1182079864
+--- !u!114 &1182079865 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7498268228175757094, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+  m_PrefabInstance: {fileID: 7498268227143099487}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182079862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d968cc30b9cd834e96256bb43c87d27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  introTime: 2.5
-  cursor: {fileID: 1001602651}
-  circlePrefab: {fileID: 6214359365182203979, guid: 24f805e467615cc41a0af7b09c531fec, type: 3}
-  boundaries: {x: 9, y: 5}
-  rows: 11
-  columns: 19
-  circleSize: 0.5
-  minCirclesInRow: 9
-  maxCirclesInRow: 18
-  minCirclesInColumn: 5
-  maxCirclesInColumn: 10
-  minAttackTime: 0.5
-  maxAttackTime: 2.5
-  minAttackCount: 10
-  maxAttackCount: 25
---- !u!114 &1182079865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182079862}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f9799d1708ad034cbe7f9770210d8aa, type: 3}
@@ -12121,67 +12065,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Asset: {fileID: -944628639613478452, guid: da604f5d40351d34f9b9de65cdddd2ed, type: 3}
   m_ActionId: 24908448-c609-4bc3-a128-ea258674378a
---- !u!1 &1951790429
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1951790430}
-  - component: {fileID: 1951790432}
-  - component: {fileID: 1951790431}
-  m_Layer: 0
-  m_Name: Shuffle Minigame
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1951790430
+--- !u!4 &1951790430 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7109817907780914578, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+  m_PrefabInstance: {fileID: 7109817908111079628}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951790429}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1826705637}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1951790431
+--- !u!114 &1951790432 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7109817907780914604, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+  m_PrefabInstance: {fileID: 7109817908111079628}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951790429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6de2bc25daae6834e93b8d8525ca6816, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  introTime: 2.5
-  circlePrefab: {fileID: 2673763970248273538, guid: 6c2dd5ff4b6bf4244adf8f92309521b3, type: 3}
-  circleCount: 6
-  minShuffleTime: 0.15
-  maxShuffleTime: 0.75
-  minShuffleCount: 15
-  maxShuffleCount: 45
-  circleDistanceFromCentre: 2.5
-  circleSize: 2.5
---- !u!114 &1951790432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951790429}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f9799d1708ad034cbe7f9770210d8aa, type: 3}
@@ -13337,3 +13231,121 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146766847}
   m_CullTransparentMesh: 1
+--- !u!1001 &7109817908111079628
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1826705637}
+    m_Modifications:
+    - target: {fileID: 7109817907780914577, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+      propertyPath: m_Name
+      value: Shuffle Minigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109817907780914578, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109817907780914578, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109817907780914578, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109817907780914578, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109817907780914578, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109817907780914578, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109817907780914578, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109817907780914578, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109817907780914578, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109817907780914578, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109817907780914578, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b3b00480c5ec8b04f8c01ba6a25edb00, type: 3}
+--- !u!1001 &7498268227143099487
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1826705637}
+    m_Modifications:
+    - target: {fileID: 7498268228175757095, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+      propertyPath: cursor
+      value: 
+      objectReference: {fileID: 1001602651}
+    - target: {fileID: 7498268228175757096, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498268228175757096, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498268228175757096, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498268228175757096, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498268228175757096, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498268228175757096, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498268228175757096, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498268228175757096, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498268228175757096, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498268228175757096, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498268228175757096, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498268228175757097, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
+      propertyPath: m_Name
+      value: Cursor Minigame
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8628a25a206e0734f89e73a7eb8e6543, type: 3}
