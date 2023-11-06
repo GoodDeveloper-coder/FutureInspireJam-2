@@ -317,20 +317,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 473956902}
-        m_TargetAssemblyTypeName: Managers.GameManagerScript, Assembly-CSharp
-        m_MethodName: StopPlayerInput
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!61 &38332138
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3579,8 +3565,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535827351}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.018566024, y: -0.25097016, z: 0.041125022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3589,8 +3575,8 @@ Transform:
   - {fileID: 788179777}
   - {fileID: 1041541296}
   - {fileID: 307992638}
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 2084265563}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &566631106
 GameObject:
@@ -3827,7 +3813,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4ccb8557473dc1c488552e8eced7329a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ceb5e9951ba23f044baf429cccdc3042, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5979,7 +5965,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1112268206
 GameObject:
@@ -11203,11 +11189,9 @@ MonoBehaviour:
   gameIntros:
   - {fileID: 902106028}
   - {fileID: 319044506}
-  - {fileID: 745565920}
   rewardText:
   - {fileID: 1031725205}
   - {fileID: 1746259012}
-  - {fileID: 1776446907}
   endScreenRewardText: {fileID: 1800085333}
   miniGamesList:
   - mode: 0
@@ -11224,7 +11208,7 @@ MonoBehaviour:
       rid: -2
   wantToStudy: {fileID: 11400000, guid: 20fc65e72084c1a4297e45082f80b2fb, type: 2}
   cantStudy: {fileID: 11400000, guid: 15cd0d051693c764793e489e6292b949, type: 2}
-  continueStudying: {fileID: 0}
+  continueStudying: {fileID: 11400000, guid: 31ff36ccf1eb6d64289f164d0d4e60fb, type: 2}
   winScreen: {fileID: 1918651982}
   loseScreen: {fileID: 1208224679}
   references:
@@ -12784,7 +12768,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ceb5e9951ba23f044baf429cccdc3042, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4ccb8557473dc1c488552e8eced7329a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13255,8 +13239,9 @@ Transform:
   m_Children:
   - {fileID: 1841557036}
   - {fileID: 1406898873}
+  - {fileID: 535827353}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2117271155
 GameObject:

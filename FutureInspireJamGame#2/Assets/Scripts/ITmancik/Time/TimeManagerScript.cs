@@ -50,7 +50,7 @@ namespace Managers
                     Hour++;
                     Minute = 0;
                     OnHourChanged?.Invoke();
-
+                   
                     if (Hour >= 24)
                     {
                         Hour = 16;
@@ -93,6 +93,7 @@ namespace Managers
             OnMinuteChanged?.Invoke();
             OnHourChanged?.Invoke();
             OnDayChanged?.Invoke();
+            Singleton.Instance.AudioManager.SetToDay();
         }
         public void PauseTime()
         {

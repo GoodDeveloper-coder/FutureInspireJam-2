@@ -30,6 +30,10 @@ namespace Interaction
         public void TimeManager_HourChanged()
         {
             _snackEatenRecently = false;
+            if (Singleton.Instance.TimeManager.Hour >= 21)
+            {
+                Singleton.Instance.AudioManager.SetToNight();
+            }
         }
         private void Awake()
         {
