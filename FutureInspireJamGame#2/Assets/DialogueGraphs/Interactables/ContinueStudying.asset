@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8130329227821802657
+--- !u!114 &-7293954986083542927
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chat
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -280, y: -136}
+  position: {x: -200, y: -184}
   ports:
     keys:
     - answers
@@ -23,7 +23,7 @@ MonoBehaviour:
     - answers 1
     values:
     - _fieldName: answers
-      _node: {fileID: -8130329227821802657}
+      _node: {fileID: -7293954986083542927}
       _typeQualifiedName: System.Collections.Generic.List`1[[Dialogue.Chat+Answer,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -33,7 +33,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: input
-      _node: {fileID: -8130329227821802657}
+      _node: {fileID: -7293954986083542927}
       _typeQualifiedName: Dialogue.DialogueBaseNode, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections: []
@@ -42,7 +42,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: output
-      _node: {fileID: -8130329227821802657}
+      _node: {fileID: -7293954986083542927}
       _typeQualifiedName: Dialogue.DialogueBaseNode, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections: []
@@ -51,7 +51,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: answers 0
-      _node: {fileID: -8130329227821802657}
+      _node: {fileID: -7293954986083542927}
       _typeQualifiedName: Dialogue.Chat+Answer, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections: []
@@ -60,7 +60,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
     - _fieldName: answers 1
-      _node: {fileID: -8130329227821802657}
+      _node: {fileID: -7293954986083542927}
       _typeQualifiedName: Dialogue.Chat+Answer, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections: []
@@ -71,11 +71,11 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   character: {fileID: 11400000, guid: 2ad83cb4bea1c5a4fb5b19b792fae975, type: 2}
-  text: Should I have a snack right now?
+  text: I'm on a roll! If I keep on studying I'll learn much faster.
   answers:
-  - text: Yes
+  - text: Continue Studying
     voiceClip: {fileID: 0}
-  - text: No
+  - text: Nah, not right now
     voiceClip: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -87,8 +87,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0636e6e814870024ba5cb0c820ffdea2, type: 3}
-  m_Name: WantSnacks
+  m_Name: ContinueStudying
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: -8130329227821802657}
-  current: {fileID: -8130329227821802657}
+  - {fileID: -7293954986083542927}
+  current: {fileID: 0}

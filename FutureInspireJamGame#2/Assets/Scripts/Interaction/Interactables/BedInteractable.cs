@@ -32,6 +32,7 @@ namespace Interaction
         public void GoToSleep()
         {
             Debug.Log("Going To Sleep!");
+            // Also add fade in and out here
             Singleton.Instance.TimeManager.MoveUpByADay();
         }
 
