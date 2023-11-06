@@ -60,6 +60,7 @@ namespace MiniGames
                 if (objectSpawnerCoroutine != null) StopCoroutine(objectSpawnerCoroutine);
                 //OnMiniGameEnded?.Invoke();
                 gameState = MiniGameState.ENDEDWON;
+                GameManagerScript.KnowledgePoints += 5;
                 //StartCoroutine(ExitMiniGame());
             }
 

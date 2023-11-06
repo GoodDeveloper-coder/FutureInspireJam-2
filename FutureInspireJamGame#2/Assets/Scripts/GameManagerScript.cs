@@ -3,6 +3,7 @@ using Dialogue;
 using MiniGames;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -38,7 +39,7 @@ namespace Managers
 
         public int snacks;
 
-        public int KnowledgePoints;
+        public static int KnowledgePoints;
 
         public AudioSource MainTrack;
         private Move playerMove;
@@ -47,6 +48,9 @@ namespace Managers
         //private Days dayOfTheWeek;
 
         private int eventIndex;
+
+        public TextMeshProUGUI KnowledgePointsText;
+
         private void Awake()
         {
 
@@ -91,6 +95,8 @@ namespace Managers
                 //Singleton.Instance.TimeManager.PauseTime();
                 eventIndex++;
             }
+
+            KnowledgePointsText.text = $"Knowledge points:{KnowledgePoints}";
         }
         public void StopPlayerInput()
         {

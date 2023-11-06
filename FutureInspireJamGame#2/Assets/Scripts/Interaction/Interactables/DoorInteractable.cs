@@ -32,12 +32,12 @@ namespace Interaction {
 
         public void InteractionStart()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         public void InteractionStop()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
        
