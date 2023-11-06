@@ -35,11 +35,11 @@ namespace Managers
 
         public int Minute;
         public int Hour;
-        
+
+        public int snacks;
 
         public int KnowledgePoints;
 
-        public AudioSource MainTrack;
         private Move playerMove;
         private Interact playerInteract;
         private GameState gameState;
