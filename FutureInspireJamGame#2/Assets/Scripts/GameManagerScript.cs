@@ -40,7 +40,6 @@ namespace Managers
 
         public int KnowledgePoints;
 
-        public AudioSource MainTrack;
         private Move playerMove;
         private Interact playerInteract;
         private GameState gameState;

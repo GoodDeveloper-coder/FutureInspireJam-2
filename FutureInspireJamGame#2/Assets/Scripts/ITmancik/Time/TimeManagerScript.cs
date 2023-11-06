@@ -27,7 +27,7 @@ namespace Managers
         void Start()
         {
             Minute = 0;
-            Hour = 16;
+            Hour = 4;
             //Day = 1;
             day = Days.Monday;
             timer = MinuteToRealTime;
@@ -36,6 +36,7 @@ namespace Managers
         // Update is called once per frame
         void Update()
         {
+            timePaused = true;
             if (timePaused) return;
 
             timer -= Time.deltaTime;
@@ -87,7 +88,7 @@ namespace Managers
         public void MoveUpByADay()
         {
             day++;
-            Hour = 16;
+            Hour = 4;
             Minute = 0;
 
             OnMinuteChanged?.Invoke();
