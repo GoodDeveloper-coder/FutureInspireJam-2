@@ -138,6 +138,7 @@ namespace MiniGames
         {
             Debug.Log("Waiting for Intro skip");
             yield return new WaitUntil(() => skipScreen);
+            Singleton.Instance.GameManager.StopPlayerInput();
             Debug.Log("Intro skip");
             skipScreen = false;
             gameIntros[currentGameIndex].SetActive(false);

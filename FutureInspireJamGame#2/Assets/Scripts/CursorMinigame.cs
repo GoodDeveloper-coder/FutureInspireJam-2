@@ -73,7 +73,7 @@ public class CursorMinigame : Minigame
             for (int i = 0; i < currentCircles.Length; i++)
             {
                 currentCircles[i].MovePosition(Vector2.Lerp(circlesMoveFrom[i], circlesMoveTo[i], currentAttackTime / attackTime));
-                if (lose && Vector2.Distance(cursor.position, currentCircles[i].position) < (circleSize + 0.5f) / 2)
+                if (!lose && Vector2.Distance(cursor.position, currentCircles[i].position) < (circleSize + 0.5f) / 2)
                 {
                     cursor.gameObject.SetActive(false);
                     lose = true;

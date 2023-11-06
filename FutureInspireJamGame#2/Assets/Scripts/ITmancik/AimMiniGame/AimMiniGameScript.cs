@@ -93,7 +93,6 @@ namespace MiniGames
             {
                 int ObjRandomNumber = UnityEngine.Random.Range(0, SpawnObjects.Length);
                 Vector3 randomSpawnOffset = new Vector2(UnityEngine.Random.Range(screenBottomLeftCoordinates.x + 0.2f, screenTopRightCoordinates.x - 0.2f), UnityEngine.Random.Range(screenBottomLeftCoordinates.y + 0.2f, screenTopRightCoordinates.y - 0.2f));
-                Debug.Log(randomSpawnOffset);
                 yield return new WaitForSeconds(speed);
                 GameObject spawnAimObject = Instantiate(SpawnObjects[ObjRandomNumber], randomSpawnOffset, Quaternion.identity);
                 spawnAimObject.transform.SetParent(minigameCanvas.transform, true);

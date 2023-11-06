@@ -10,6 +10,7 @@ namespace Managers
         public static Singleton Instance { get; private set; }
         public TimeManagerScript TimeManager { get; private set; }
         public GameManagerScript GameManager { get; private set; }
+        public AudioManagerScript AudioManager { get; private set; }
         //public UIManager UIManager { get; private set; }
         private void Awake()
         {
@@ -21,7 +22,7 @@ namespace Managers
             Instance = this;
             TimeManager = GetComponentInChildren<TimeManagerScript>();
             GameManager = GetComponentInChildren<GameManagerScript>();
-            //AudioManager = GetComponentInChildren<AudioManager>();
+            AudioManager = GetComponentInChildren<AudioManagerScript>();
             //UIManager = GetComponentInChildren<UIManager>();
         }
     }

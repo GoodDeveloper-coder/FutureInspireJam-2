@@ -100,12 +100,15 @@ namespace Managers
         }
         public void StopPlayerInput()
         {
+            Debug.Log("StopPlayerINput" + playerObject);
             playerMove.StopMovement();
             playerInteract.StopInteraction();
             Singleton.Instance.TimeManager.PauseTime();
         }
         public void RestartPlayerInput()
         {
+            Debug.Log("StartPlayerINput : " + playerObject);
+
             playerMove.Restartmovement();
             playerInteract.RestartInteraction();
             Singleton.Instance.TimeManager.ResumeTime();
