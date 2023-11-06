@@ -173,7 +173,7 @@ MonoBehaviour:
       _dynamic: 0
   input: {fileID: 0}
   output: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 11400000, guid: 2ad83cb4bea1c5a4fb5b19b792fae975, type: 2}
   text: Another day, another pickle!
   answers: []
 --- !u!114 &11400000

@@ -36,7 +36,7 @@ namespace Managers
 
         public int Minute;
         public int Hour;
-
+        
         public int snacks;
 
         public static int KnowledgePoints;
@@ -45,12 +45,21 @@ namespace Managers
         private Move playerMove;
         private Interact playerInteract;
         private GameState gameState;
-        //private Days dayOfTheWeek;
+        public Days dayOfTheWeek;
 
         private int eventIndex;
 
         public TextMeshProUGUI KnowledgePointsText;
 
+        private void Start()
+        {
+            eventIndex = 0;
+            narrator.SetDialogueGraph(eventList[eventIndex].dialogueGraph);
+            narrator.BeginDialogue();
+            StopPlayerInput();
+            //Singleton.Instance.TimeManager.PauseTime();
+            eventIndex++;
+        }
         private void Awake()
         {
 
@@ -63,7 +72,22 @@ namespace Managers
         {
             NodeParser.OnNarrationEnded += NodeParser_OnNarrationEnded;
             MiniGameManager.OnMiniGameEnded += MiniGameManager_OnMiniGameEnded;
+            TimeManagerScript.OnHourChanged += TimeManagerScript_OnHourChanged;
         }
+
+        private void TimeManagerScript_OnHourChanged()
+        {
+            if (eventIndex > eventList.Count) return;
+            if (dayOfTheWeek == eventList[eventIndex].day && Hour == eventList[eventIndex].hour)
+            {
+                narrator.SetDialogueGraph(eventList[eventIndex].dialogueGraph);
+                narrator.BeginDialogue();
+                StopPlayerInput();
+                //Singleton.Instance.TimeManager.PauseTime();
+                eventIndex++;
+            }
+        }
+
         private void MiniGameManager_OnMiniGameEnded()
         {
             RestartPlayerInput();
@@ -86,15 +110,8 @@ namespace Managers
         {
             Minute = Singleton.Instance.TimeManager.Minute;
             Hour = Singleton.Instance.TimeManager.Hour;
-            if (eventIndex > eventList.Count) return;
-            if (Singleton.Instance.TimeManager.GetDay() == eventList[eventIndex].day && Hour == eventList[eventIndex].hour)
-            {
-                narrator.SetDialogueGraph(eventList[eventIndex].dialogueGraph);
-                narrator.BeginDialogue();
-                StopPlayerInput();
-                //Singleton.Instance.TimeManager.PauseTime();
-                eventIndex++;
-            }
+            dayOfTheWeek = Singleton.Instance.TimeManager.GetDay();
+            
 
             KnowledgePointsText.text = $"Knowledge points:{KnowledgePoints}";
         }
