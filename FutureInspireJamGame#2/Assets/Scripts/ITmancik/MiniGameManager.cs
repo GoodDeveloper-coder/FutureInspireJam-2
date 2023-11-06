@@ -24,6 +24,11 @@ namespace MiniGames
 
         }
 
+        public void SetFocusLevel(float focus)
+        {
+            for (int i = 0; i < miniGamesList.Count; i++) miniGamesList[i].Value.SetFocusLevel(focus);
+        }
+
         public IEnumerator CheckGameOver()
         {
             yield return new WaitUntil(() => miniGamesList[currentGameIndex].Value.MiniGameEnded());

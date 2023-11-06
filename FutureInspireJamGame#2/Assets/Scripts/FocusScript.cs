@@ -3,65 +3,78 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class FocusScript : MonoBehaviour
+namespace MiniGames
 {
-    [SerializeField] private TextMeshProUGUI textFocus;
-
-    private float denominator;
-    private bool plumberIsHere;
-
-    // Start is called before the first frame update
-    void Start()
+    public class FocusScript : MonoBehaviour
     {
-        denominator = 1f;
-    }
+        [SerializeField] private TextMeshProUGUI textFocus;
 
-    // Update is called once per frame
-    void Update()
-    {
-        textFocus.text = (int)(GetFocusLevel() * 100) + "%";
-    }
+        [SerializeField] private MiniGameManager minigameManager;
 
-    public float GetFocusLevel()
-    {
-        return 1f / (plumberIsHere ? 1.25f * denominator : denominator);
-    }
+        private float denominator;
+        private bool plumberIsHere;
 
-    public void FinishMinigame()
-    {
-        denominator *= 1.25f;
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            denominator = 1f;
+            textFocus.text = (int)(GetFocusLevel() * 100) + "%";
+        }
 
-    public void TakeBreak()
-    {
-        denominator /= 1.25f;
-        if (denominator < 1f) denominator = 1f;
-    }
+        // Update is called once per frame
+        void Update()
+        {
+            minigameManager.SetFocusLevel(GetFocusLevel());
+        }
 
-    public void EatDinner(bool hadSnack)
-    {
-        if (hadSnack) // if player had a snack one hour or less before dinner
+        private float GetFocusLevel()
+        {
+            return 1f / (plumberIsHere ? 1.25f * denominator : denominator);
+        }
+
+        public void FinishMinigame()
         {
             denominator *= 1.25f;
-            return;
+            textFocus.text = (int)(GetFocusLevel() * 100) + "%";
         }
-        denominator /= 1.25f;
-        if (denominator < 1) denominator = 1;
-    }
 
-    public void EatSnack()
-    {
-        denominator /= 1.25f;
-        if (denominator < 1) denominator = 1;
-    }
+        public void TakeBreak()
+        {
+            denominator /= 1.25f;
+            if (denominator < 1f) denominator = 1f;
+            textFocus.text = (int)(GetFocusLevel() * 100) + "%";
+        }
 
-    public void GoToBed(float hoursAfterBedtime, int snacksAfterBedtime)
-    {
-        denominator = 1 + (hoursAfterBedtime * 0.1f) + (snacksAfterBedtime * 0.05f);
-    }
+        public void EatDinner(bool hadSnack)
+        {
+            if (hadSnack) // if player had a snack one hour or less before dinner
+            {
+                denominator *= 1.25f;
+                textFocus.text = (int)(GetFocusLevel() * 100) + "%";
+                return;
+            }
+            denominator /= 1.25f;
+            if (denominator < 1) denominator = 1;
+            textFocus.text = (int)(GetFocusLevel() * 100) + "%";
+        }
 
-    public void SetPlumberIsHere(bool p)
-    {
-        plumberIsHere = p;
+        public void EatSnack()
+        {
+            denominator /= 1.25f;
+            if (denominator < 1) denominator = 1;
+            textFocus.text = (int)(GetFocusLevel() * 100) + "%";
+        }
+
+        public void NewDay(float hoursAfterBedtime, int snacksAfterBedtime)
+        {
+            denominator = 1 + (hoursAfterBedtime * 0.1f) + (snacksAfterBedtime * 0.05f);
+            textFocus.text = (int)(GetFocusLevel() * 100) + "%";
+        }
+
+        public void SetPlumberIsHere(bool p)
+        {
+            plumberIsHere = p;
+            textFocus.text = (int)(GetFocusLevel() * 100) + "%";
+        }
     }
 }

@@ -39,6 +39,8 @@ namespace MiniGames
         public GameObject WinMenu;
         public GameObject LooseMenu;
 
+        private float focus;
+
         private Coroutine objectSpawnerCoroutine;
         private MiniGameState gameState;
         private Vector3 screenTopRightCoordinates;
@@ -81,6 +83,11 @@ namespace MiniGames
             }
 
 
+        }
+
+        public void SetFocusLevel(float f)
+        {
+            focus = f;
         }
 
         public void MiniGameStart ()

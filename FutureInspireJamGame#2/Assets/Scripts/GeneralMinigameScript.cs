@@ -8,6 +8,8 @@ namespace MiniGames
     {
         private Minigame minigame;
 
+        private float focus;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -21,9 +23,14 @@ namespace MiniGames
 
         }
 
+        public void SetFocusLevel(float f)
+        {
+            focus = f;
+        }
+
         public void MiniGameStart()
         {
-            minigame.PlayMinigame(0.5f);
+            minigame.PlayMinigame(focus);
         }
 
         public bool MiniGameEnded()
