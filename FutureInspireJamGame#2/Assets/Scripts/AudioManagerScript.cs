@@ -43,7 +43,7 @@ public class AudioManagerScript : MonoBehaviour
             if (transitionTime > 0)
             {
                 musicPlayer1.volume = transitionTime / transitionDuration;
-                ambiencePlayer1.volume = transitionTime / transitionDuration;
+                ambiencePlayer1.volume = (dayIndex == 1 || dayIndex == 2 ? 0.5f : 1) * transitionTime / transitionDuration;
             }
             else
             {
@@ -53,7 +53,7 @@ public class AudioManagerScript : MonoBehaviour
                 musicPlayer1.Play();
                 if (night || dayIndex > 0 && dayIndex < 4)
                 {
-                    ambiencePlayer1.volume = 1;
+                    ambiencePlayer1.volume = dayIndex == 1 || dayIndex == 2 ? 0.5f : 1;
                     ambiencePlayer1.Stop();
                     ambiencePlayer1.clip = night ? nightAmbience : dayIndex == 1 ? rainAmbience : dayIndex == 2 ? thunderAmbience : windAmbience;
                     ambiencePlayer1.Play();
