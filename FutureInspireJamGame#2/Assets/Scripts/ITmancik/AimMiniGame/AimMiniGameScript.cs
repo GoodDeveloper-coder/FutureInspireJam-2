@@ -56,21 +56,21 @@ namespace MiniGames
 
             if (PositivePoints >= PointsToWin)
             {
-                //WinMenu.SetActive(true);
+                WinMenu.SetActive(true);
                 if (objectSpawnerCoroutine != null) StopCoroutine(objectSpawnerCoroutine);
                 //OnMiniGameEnded?.Invoke();
                 gameState = MiniGameState.ENDEDWON;
                 GameManagerScript.KnowledgePoints += 5;
-                //StartCoroutine(ExitMiniGame());
+                StartCoroutine(ExitMiniGame());
             }
 
             if (NegativePoints >= PointsToLoose)
             {
-                //LooseMenu.SetActive(true);
+                LooseMenu.SetActive(true);
                 //OnMiniGameEnded?.Invoke();
                 if (objectSpawnerCoroutine != null) StopCoroutine(objectSpawnerCoroutine);
                 gameState = MiniGameState.ENDEDLOST;
-                //StartCoroutine(ExitMiniGame());
+                StartCoroutine(ExitMiniGame());
             }
 
 
