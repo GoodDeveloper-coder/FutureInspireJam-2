@@ -7018,21 +7018,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d968cc30b9cd834e96256bb43c87d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introTime: 0
+  introTime: 2.5
   cursor: {fileID: 1001602651}
-  circlePrefab: {fileID: 0}
-  boundaries: {x: 0, y: 0}
-  rows: 0
-  columns: 0
-  circleSize: 0
-  minCirclesInRow: 0
-  maxCirclesInRow: 0
-  minCirclesInColumn: 0
-  maxCirclesInColumn: 0
-  minAttackTime: 0
-  maxAttackTime: 0
-  minAttackCount: 0
-  maxAttackCount: 0
+  circlePrefab: {fileID: 6214359365182203979, guid: 24f805e467615cc41a0af7b09c531fec, type: 3}
+  boundaries: {x: 9, y: 5}
+  rows: 11
+  columns: 19
+  circleSize: 0.5
+  minCirclesInRow: 9
+  maxCirclesInRow: 18
+  minCirclesInColumn: 5
+  maxCirclesInColumn: 10
+  minAttackTime: 0.5
+  maxAttackTime: 2.5
+  minAttackCount: 10
+  maxAttackCount: 25
 --- !u!114 &1182079865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10772,7 +10772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1826705637
 Transform:
   m_ObjectHideFlags: 0
@@ -12166,15 +12166,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de2bc25daae6834e93b8d8525ca6816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introTime: 0
+  introTime: 2.5
   circlePrefab: {fileID: 2673763970248273538, guid: 6c2dd5ff4b6bf4244adf8f92309521b3, type: 3}
-  circleCount: 0
-  minShuffleTime: 0
-  maxShuffleTime: 0
-  minShuffleCount: 0
-  maxShuffleCount: 0
+  circleCount: 6
+  minShuffleTime: 0.15
+  maxShuffleTime: 0.75
+  minShuffleCount: 15
+  maxShuffleCount: 45
   circleDistanceFromCentre: 2.5
-  circleSize: 0
+  circleSize: 2.5
 --- !u!114 &1951790432
 MonoBehaviour:
   m_ObjectHideFlags: 0
