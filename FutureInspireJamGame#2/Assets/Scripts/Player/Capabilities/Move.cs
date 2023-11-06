@@ -15,7 +15,7 @@ namespace Capabilities
         [SerializeField] private float groundFriction = 0.9f;
         [SerializeField] private Vector2 _velocity, _direction, _desiredVelocity;
 
-        private Rigidbody2D _body;
+        [SerializeField] private Rigidbody2D _body;
         private Animator _animator;
 
         private float _maxSpeedChange;
